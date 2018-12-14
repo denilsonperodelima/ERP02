@@ -141,12 +141,6 @@ public class Pedido implements Serializable {
 		return true;
 	}
 
-	/*
-
-
-
-	*/
-	
 	@Override
 	public String toString() {
 		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));

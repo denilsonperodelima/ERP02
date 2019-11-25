@@ -1,0 +1,70 @@
+ <!-- Modal Pesquisa inicio--> 
+ <div class="container">
+  <div class="modal fade" id="modalconsultapedido" role="dialog">
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Pesquisa</h4>
+	          <h4 id="modalrelac" class="modal-title"></h4>
+	        </div>
+	        <div class="modal-body">	        
+				 <div id="top" class="row"> 
+				    <div class="col-md-2">			    
+				        <div class="input-group h2">
+				            <input name="data[search]" class="form-control" id="numeropesquisa" type="text" placeholder="Numero">
+				            <span class="input-group-btn">
+				                <button class="btn btn-primary" type="submit" id="pesquisarpornumero">
+				                    <span class="glyphicon glyphicon-search"></span>
+				                </button>
+				            </span>
+				        </div>
+				    </div>					 
+				    <div class="col-md-3" style="margin-top: 2.3%">
+ 						  <select class="form-control" id="modalstatuspedido" name="tipo">			
+							    <option>ANDAMENTO</option> 	
+							    <option>FINALIZADO</option>									    								    					  			
+						  </select>	
+				    </div>					 		 
+				    <div class="col-md-5">
+				        <div class="input-group h2">
+				            <input name="data[search]" class="form-control" id="nomecliente" type="text" placeholder="Cliente">
+				            <span class="input-group-btn">
+				                <button class="btn btn-primary" type="submit" id="pesquisarpornome">
+				                    <span class="glyphicon glyphicon-search"></span>
+				                </button>
+				            </span>
+				        </div>
+				    </div>		 
+				</div> <!-- /#top -->
+	
+				<div id="list" class="row">
+		 		    <div class="table-responsive col-md-12">
+				        <table class="table table-striped" id="tablePedido" >
+				            <thead>
+				                <tr class="row">
+				                    <th>ID</th>				                    
+				                   	<th id="label1">Status</th>
+				                   	<th id="label2">Data</th>				                   	
+				                   	<th id="label3"></th>		                    	
+				                    <th class="actions"></th>		                    
+				                 </tr>
+				            </thead>
+				            <tbody id = "tbodyPedido">	
+				            </tbody>
+				         </table>
+				 
+				     </div>
+				</div> <!-- /#list -->
+				<div class="row">
+				<h4 id="msgmodalpedido"></h4>
+				</div>
+     		 </div>
+	         <div class="modal-footer">
+	           <button type="button" class="btn btn-default" data-dismiss="modal" id="pedidoconsultanomefechar">Fechar</button>
+	         </div>
+       </div>   
+    </div>
+  </div>
+    </div>
+  <!-- Modal Pesquisa fim-->  

@@ -8,12 +8,12 @@
 		<version>1.5.19.BUILD-SNAPSHOT</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.nelioalves.cursomc</groupId>
-	<artifactId>cursomc</artifactId>
+	<groupId>com.velocinotech.erp02</groupId>
+	<artifactId>erp02</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>cursomc</name>
-	<description>Estudo de caso</description>
+	<name>erp02</name>
+	<description>Erp02 - Velocino</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -73,7 +73,7 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.7.0</version>
 		</dependency>
-								
+										
 	</dependencies>
 
 	<build>

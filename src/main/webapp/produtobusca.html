@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Santa Ajuda</title>
+
+    <link rel="stylesheet" href="./resources/css/PessoabuscaEstilo.css"/> 
+	<link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="text/javascript" href="./resources/arpz005.js"/> 	
+</head>
+<body>
+  <header>
+
+	    	 <br></br>
+	    	 	    	 <br></br>
+  		<form id = "frmprodutobusca">
+		  
+	    	 <br></br>
+          <div class="row">
+			    <div class="col-md-2">
+			        <div class="input-group h2">
+			            <input name="data[search]" class="form-control" id="txtCodigo" type="text" placeholder="Codigo">
+			            <span class="input-group-btn">
+			                <button class="btn btn-primary" type="submit" id="btnCodigo">
+			                    <span class="glyphicon glyphicon-search"></span>
+			                </button>
+			            </span>
+			        </div>
+			    </div>
+
+			    <div class="col-md-4">
+			        <div class="input-group h2">
+			            <input name="data[search]" class="form-control" id="txtNome" type="text" placeholder="Nome">
+			            <span class="input-group-btn">
+			                <button class="btn btn-primary" type="submit" id="btnNome">
+			                    <span class="glyphicon glyphicon-search"></span>
+			                </button>
+			            </span>
+			        </div>
+			    </div>		 
+			</div> <!-- /#top -->
+
+			<div id="list" class="row">
+	 		    <div class="table-responsive col-md-12">
+			        <table class="table table-striped" id="tableProduto" >
+			            <thead>
+			                <tr class="row">
+			                    <th>ID</th>
+			                   	<th>Codigo</th>
+			                    <th>Nome</th>
+			                    <th>Quantidade</th>			                    
+			                   	<th></th>		                    	
+			                    <th class="actions"></th>		                    
+			                 </tr>
+			            </thead>
+			            <tbody id = "tbodyProduto">	
+			            </tbody>
+			         </table>
+			 
+			     </div>
+			</div> <!-- /#list -->
+		</form>
+  </header>
+  
+  <script src="./resources/lib/jquery/jquery.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  <script src="./resources/lib/jquery/JUtil.js"></script> 
+  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="./resources/arpz005.js"></script>   
+</body>
+</html>

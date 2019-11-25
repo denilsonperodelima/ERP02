@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ERPyy</title>
+    <link rel="stylesheet" href="./resources/css/pedidobusca.css"/> 
+    <link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">  
+</head>
+
+<body>
+	<header>
+	<form>
+    <div id="includeNav"></div>
+ 	
+           <fieldset>	        
+	        	 <legend style="margin-bottom: 0"></legend> 	    	 	    	 
+				 <div  class="row" style="margin-top: 10px"> 
+		 		        <div class="col-xs-2">
+					         <button class="btn " id="btnNovo">
+					           <span class="glyphicon glyphicon-plus"></span>
+					           Incluir Pedido</button>
+				        </div>  				 
+		               	<div class="col-md-2">
+							  <select class="form-control" id="cboSituacao" style="border-radius: 1px">
+							    <option>ANDAMENTO</option>					
+							    <option>FINALIZADO</option>
+							  </select>
+						</div>  			 
+		
+		                <div class="col-md-2">   
+		                    <input type="text" class="form-control" id="txtDataInicio" name="datainicio" value = "" placeholder="Data Inicio"> 
+		                </div> 
+		
+		                <div class="col-md-2">   
+		                    <input type="text" class="form-control" id="txtDataFim" name="datafim" value = "" style="border-radius: 1px" placeholder="Data Fim"> 
+		                </div> 
+		                
+		                <div class="col-md-2"> 
+		      		        <div  id="btnLimparData"> 
+								<button type="button" class="btn btn-outline-primary" style="border-radius: 1px">
+								   <span class="glyphicon  glyphicon-remove"></span>
+								    Limpar 
+								</button>
+		       		        </div> 	
+		                </div> 			                
+		         </div> 
+	         		                
+ 				 <div class="row" style="margin-top: 0">  
+
+ 				      <div class="col-md-4">				 
+	 				        <div class="input-group h2">	 				       			             
+					            <input name="cliente" class="form-control" id="txtClientePesq" type="text" placeholder="Cliente" style="border-radius: 1px">
+					            <span class="input-group-btn">
+					                <button class="btn btn-primary" type="submit" id="btnClientePesq">
+					                    <span class="glyphicon glyphicon-search"></span>
+					                </button>
+					            </span>
+					        </div>  
+				      </div> 	
+
+
+ 				      <div class="col-md-4">				 
+	 				        <div class="input-group h2">
+					            <input name="vendedor" class="form-control" id="txtVendPesq" type="text" placeholder="Vendedor" style="border-radius: 1px">
+					            <span class="input-group-btn">
+					                <button class="btn btn-primary" type="submit" id="btnPesquisarVend">
+					                    <span class="glyphicon glyphicon-search"></span>
+					                </button>
+					            </span>
+					        </div>  
+				      </div> 				        
+		 		        <div class="col-xs-1">
+					         <button class="btn btn-warning" id="btnPesquisar">
+					           <span class="glyphicon glyphicon glyphicon-search"></span>
+					           Pesquisar</button>
+				        </div> 				        				        			                                     		               	
+	                <div class="col-md-1">   
+	                    <input type="text" class="hidden" id="txtIdVendedor" name="idvendedor"> 
+	                </div> 	
+	                <div class="col-md-1">   
+	                    <input type="text" class="hidden" id="txtIdCliente" name="idcliente"> 
+	                </div>                                		     
+				</div> <!-- /#top -->
+           </fieldset>
+           <fieldset>
+	        	 <legend></legend> 
+           </fieldset>	        	            
+           <fieldset>         
+				<div id="list" class="row">
+		 		    <div class="table-responsive col-md-12">
+				        <table class="table table-striped" id="tablePedido" >
+				            <thead>
+				                <tr class="row">
+				                    <th>ID</th>
+				                   	<th>Data</th>			                    
+				                   	<th>Cliente</th>
+				                   	<th>Vendedor</th>	
+				                   	<th>Valor</th>
+				                   	<th>Situação</th>			                   				                   		                    	
+				                    <th class="actions"></th>		                    
+				                 </tr>
+				            </thead>
+				            <tbody id = "tbodyPedido">	
+				            </tbody>
+				         </table>
+				 
+				     </div>
+				</div> <!-- /#list -->
+           </fieldset>			
+		</form>
+	</header>
+ 
+	
+	  <script src="./resources/lib/jquery/jquery.min.js"></script>
+	  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+	  <script src="./resources/lib/jquery/JUtil.js"></script> 
+	  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+	  <script src="./resources/pedidobusca.js"></script>  
+	  
+	  <div id="includeModalPesquisa"></div>
+		  
+	  <script> 
+	    $(function(){
+	      $("#includeNav").load("nav.html"); 
+	    });
+	    $(function(){
+	        $("#includeModalPesquisa").load("modalPesquisa.html"); 
+	      });
+	  </script>   
+</body>
+</html>

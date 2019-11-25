@@ -1,0 +1,62 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ERP - Página inicial</title>
+    <link rel="stylesheet" href="./resources/css/nav.css"/> 
+	<link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">	       
+</head>
+<body>
+  <header>
+  	<form id = "erpprincipal">
+	   <div id="includeNav"></div>
+	</form>
+  </header>
+
+<div class="container-fluid" style="margin-top: 5%">
+  <div class="row content">
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Bem vindo !!!</h4>
+        <p id="usuario"></p>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well">
+            <p></p> 
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p></p> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hidden" id="msg"> 
+	<div class="alert alert-danger" id ="msgtexto" style="width: 60%;margin-left: 2%">
+	  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+	</div>
+</div> 
+  
+  <script src="./resources/lib/jquery/jquery.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  <script src="./resources/lib/jquery/JUtil.js"></script> 
+  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="./resources/inicio.js"></script>   
+  <script src="./resources/iniciocon.js"></script>    
+  <script> 
+    $(function(){
+      $("#includeNav").load("nav.html"); 
+    });
+  </script>    	  	 
+</body>
+<style>
+	.well {
+	  background-color: white;
+	}
+</style>
+</html>

@@ -1,0 +1,49 @@
+header{
+	width: 95%;
+	height: 100px;
+	background-color: #68C3A3;
+	margin-left: 0.5em;
+}
+nav{
+	width: 100%;
+	height: 35px;
+	background-color: #FFFFFF;	
+}
+header #top {
+	margin-left: 0%;
+}
+header #radioPessoa {
+	margin-left: 15px;
+}
+
+#bntConsultar {
+	
+	margin-top: 30%;
+}
+#btnNovo {
+	position: absolute;
+    top: 25px;
+    //vertical-align: middle;
+}
+#btnPesquisar {
+    position: relative;
+    margin-top: 25%;
+}
+#bntEditarDoc {
+    margin-top: 30%;
+    margin-left: -20%;
+}
+#nomediv {
+    margin-left: -5%;
+}
+#bntConsultar {
+    margin-left: -20%;
+}
+#bntEditarNome {
+    margin-left: -80%;
+    margin-top: +30%;
+}
+#bntMenuPessoa {
+    margin-left: 250%;
+    margin-top: -70%;
+}

@@ -1,0 +1,99 @@
+<meta charset="utf-8">
+<div class="row">
+	<div class="col-xs-1" style="margin-top: +1%">
+	   <button class="btn btn-primary " id="novocontato" data-placement="bottom"  >
+	     <span class="glyphicon glyphicon-plus"></span>
+	     Novo Contat<u>o</u> </button>
+	</div> 
+	<div class="row">
+	   	<div class="col-xs-2">
+			  <select class="hidden" id="tipocontatoitensaux" name="tipocontatoitensaux" >								    				
+			  </select>
+		</div>	
+	</div>	 		
+</div> 
+	<div class=row id="linhaenderecocabec" style="margin-left: 20%; margin-top: -2%">		
+	             <div class="col-xs-2" id="contalabel" >
+	                  <label for="Relac">Tipo</label>
+	             </div> 					                    		
+	             <div class="col-xs-2" id="obslabel" style="margin-left: 0%">
+	                  <label for="Relac">Nome</label>
+	             </div> 				                    				                    									                 			                         						
+	</div> 
+<div class="col-xs-8">
+	
+<br></br>
+     <ul class="ulcontatodinamico">   
+     </ul>	
+<!--****fim uldinamica	-->    
+ 
+</div>	
+<div class="hidden" id="contatoauxiliar">
+     <div class="col-xs-2">   
+         <input type="text" class="form-control" id="idcontatoauxiliar" name="id"> 
+     </div>   
+     <div class="col-xs-3">   
+         <input type="text" class="form-control" id="tipocontatoauxiliar" name="tipo"> 
+     </div> 
+     <div class="col-xs-2">   
+         <input type="text" class="form-control" id="nomecontatoauxiliar" name="nome" > 
+     </div>  
+</div>
+<div id="includecontatocadastro"></div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 10000 + "px";
+    } 
+  });
+}
+$(function(){
+    $("#includecontatocadastro").load("./resources/modais/contatocadastrar.html"); 
+});	
+</script> 
+            			                		                 	                 			         
+<style>
+.accordion {
+  background-color: white;
+  color: #444;
+  cursor: pointer;
+  padding: 5px;
+  width: 50%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+#deletarcontatox, #editarcontatox,#idcontato,#tipocontato {
+  background-color: white;
+  border: none;
+}
+#novocontato {
+  background-color: white;
+  font-stretch: ultra-condensed;
+  color: black;
+}
+.activex, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 1px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.ulcontatodinamicoxx, ulcontatoitens ul {
+    list-style: none;
+}
+</style>

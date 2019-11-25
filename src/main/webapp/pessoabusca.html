@@ -1,0 +1,92 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Santa Ajuda</title>
+
+    <link rel="stylesheet" href="./resources/css/PessoabuscaEstilo.css"/> 
+	<link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="text/javascript" href="./resources/arpz002.js"/> 	
+</head>
+<body>
+  <header>
+  		<form id = "frmcadastro">		  
+	        <br></br>
+	        
+       	 	<nav class="navbar ">
+				  <div class="container-fluid">
+					    <div class="navbar-header">
+					      <a class="navbar-brand" href="#">...</a>
+					    </div>
+
+					    <ul class="nav navbar-nav" id="IncluirNovo">
+					       <li><a href="#"><span class="glyphicon glyphicon glyphicon glyphicon-plus"></span>  Incluir Novo</a></li>
+					    </ul>
+					    <ul class="nav navbar-nav navbar-right">
+					       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+					    </ul>
+					    
+				  </div>
+		   </nav>
+	    	 	    	 
+			 <div id="top" class="row"> 
+			 
+               	<div class="col-md-2">
+					  <label for="sel1">Tipo Pessoa</label>
+					  <select class="form-control" id="cboPessoa" onchange="soma()">
+					    <option>FISICA</option>
+					    <option>JURIDICA</option>					
+					  </select>
+				</div>  			 
+			 
+			    <div class="col-md-3">
+			        <div class="input-group h2">
+			            <input name="data[search]" class="form-control" id="txtDocumento" type="text" placeholder="Documento">
+			            <span class="input-group-btn">
+			                <button class="btn btn-primary" type="submit" id="btnDocumento">
+			                    <span class="glyphicon glyphicon-search"></span>
+			                </button>
+			            </span>
+			        </div>
+			    </div>
+
+			    <div class="col-md-4">
+			        <div class="input-group h2">
+			            <input name="data[search]" class="form-control" id="txtNome" type="text" placeholder="Nome">
+			            <span class="input-group-btn">
+			                <button class="btn btn-primary" type="submit" id="btnNome">
+			                    <span class="glyphicon glyphicon-search"></span>
+			                </button>
+			            </span>
+			        </div>
+			    </div>		 
+			</div> <!-- /#top -->
+
+			<div id="list" class="row">
+	 		    <div class="table-responsive col-md-12">
+			        <table class="table table-striped" id="tablePessoa" >
+			            <thead>
+			                <tr class="row">
+			                    <th>ID</th>
+			                   	<th>Nome</th>
+			                    <th>Relacionamento</th>
+			                   	<th></th>		                    	
+			                    <th class="actions"></th>		                    
+			                 </tr>
+			            </thead>
+			            <tbody id = "tbodyPessoa">	
+			            </tbody>
+			         </table>
+			 
+			     </div>
+			</div> <!-- /#list -->
+		</form>
+  </header>
+  
+  <script src="./resources/lib/jquery/jquery.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  <script src="./resources/lib/jquery/JUtil.js"></script> 
+  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="./resources/arpz002.js"></script>      
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ERP</title>
+    <link rel="stylesheet" href="./resources/css/PessoaEstilo.css"/> 
+    <link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">        
+</head>
+<body>
+  <header>
+
+     <script src="./resources/lib/jquery/jquery.min.js"></script>
+     	<script> 
+	    $(function(){
+	      $("#includeNav").load("nav.html"); 
+	    });
+     </script>   
+
+  
+    <form id="frmcadastro" >
+  
+  	    <div id="includeNav"></div>
+
+               <div class="row">  
+ 		        <div class="col-xs-1">
+		         <button class="btn btn-primary" id="btnNovo" data-toggle="tooltip" data-placement="bottom" title="CTRL + N">
+		           <span class="glyphicon glyphicon-plus"></span>
+		           Novo     </button>
+		        </div>  
+                                    		               	
+               	<div class="col-xs-2">
+					  <label for="sel1">Tipo Pessoa</label>
+					  <select class="form-control" id="cboPessoa">
+					    <option>JURIDICA</option>	
+					    <option>FISICA</option>				
+					  </select>
+				</div>  
+				
+                   <div class="col-xs-2">   
+                       <label id="documento">Documento</label>
+                       <input type="text" class="form-control" id="txtdocumento" name="nome" > 
+                   </div>  
+                   
+                    <div class="col-xs-1">
+				         <button class="btn " id="bntEditarDoc">
+				           <span class="glyphicon glyphicon glyphicon-pencil"></span>
+				          </button>	
+		            </div> 	
+		                               
+ 		           <div class="col-xs-4" id="nomediv">   
+                        <label id="nome">Nome</label>
+                        <input type="text" class="form-control" id="txtnome" name="nome"  > 
+                    </div> 
+		                                     
+                    <div class="col-xs-1">
+				         <button class="btn" id="bntConsultar">
+				           <span class="glyphicon glyphicon glyphicon-search"></span>
+				          </button>	
+		            </div>   
+                    <div class="col-xs-1">
+				         <button class="btn" id="bntEditarNome">
+				           <span class="glyphicon glyphicon glyphicon-pencil"></span>
+				          </button>	
+		            </div> 	
+                    <div class="col-xs-1">
+				         <button class="btn"  id="bntMenuPessoa">
+				           <span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+				          </button>	
+		            </div> 			            	                                                                                
+        </div>
+
+        	      <legend>.CADASTRO DE XXXXXXX</legend> 
+					                            		  	    
+		<ul class="nav nav-tabs">
+		  <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
+		  <li><a data-toggle="tab" href="#endereço">Endereços</a></li>
+		  <li><a data-toggle="tab" href="#contato">Contatos</a></li>
+		</ul>
+		
+		<div class="tab-content">
+		  <div id="cadastro" class="tab-pane fade in active">
+		    <p>
+		                <div class="row">               		               	
+
+		                    <div class="col-xs-2" id="nomefantasia">   
+		                        <label >Nome Fantasia</label>
+		                        <input type="text" class="form-control" id="txtnomeFantasia" name="nome"  > 
+		                    </div>                               
+		                </div>
+		
+		                <div class="row" >
+		                    <div class="col-xs-2">   
+		                        <label id="nascimento">Nascimento</label>
+		                        <input type="text" class="form-control" id="txtnascimento" name="nascimento" value=""> 
+		                    </div> 
+		                    <div class="col-xs-2">
+		                         <label id="rg">RG</label>
+		                         <input type="text" class="form-control" id="txtrg" name="rg" value = "">   
+		                    </div> 
+		                    <div class="col-xs-2">
+		                         <label id="cnh">CNH</label>
+		                         <input type="text" class="form-control" id="txtcnh" name="cnh" value = ""> 
+		                    </div> 
+		                    <div class="col-xs-1">
+		                        <div class="col-xs-2">
+		                             <label for="empresa"></label>
+		                             <input type="text" class="form-control" id="txtempresa" name="Empresa" value = ""> 
+		                        </div> 
+		                    </div>
+		                    <div class="col-xs-1">
+			                    <div class="col-xs-1">
+			                         <label for="Param"></label>
+			                         <input type="text" class="form-control" id="txtParam" name="Param" > 
+			                    </div> 
+		                	 </div>
+		                    <div class="col-xs-1">
+			                    <div class="col-xs-1">
+			                         <label for="Relac"></label>
+			                         <input type="text" class="form-control" id="txtRelac" name="Relac" > 
+			                    </div> 
+		                	 </div>                	 
+		                 </div>
+		                <br/>
+		    
+		    </p>
+		  </div>
+		  
+		  <div id="endereço" class="tab-pane fade">
+		    <p>
+			     <fieldset>	   
+						<legend></legend>
+			 		    <div class="table-responsive col-md-12">
+					        <table class="table table-striped" id="tableEndereco" >
+					            <thead>
+					                <tr class="row">
+					                    <th>ID</th>
+					                   	<th>Tipo</th>
+					                   	<th>Endereço</th>			                   	
+					                    <th>Bairro</th>
+					                   	<th>Cep</th>
+					                   	<th>Cidade</th>			                    
+					                   	<th>UF</th>			                   	
+					                    <th class="actions"></th>		                    
+					                 </tr>
+					            </thead>
+					            <tbody id = "tbodyEndereco">	
+					            </tbody>
+					         </table>	
+			           		 <div>
+				                <button class="btn btn-default " id="bntIncluirEnd"  >
+				                  <span class="glyphicon glyphicon-plus"></span>Novo Endereço
+				                </button>
+				            </div>   
+					     </div>
+					     
+			       </fieldset>
+		    
+		    </p>
+		  </div>
+		  
+		  
+		  <div id="contato" class="tab-pane fade">
+		    <p>
+		      <fieldset>
+						<div>
+				 		    <div class="table-responsive col-md-12">
+						        <table class="table table-striped" id="tableContato" >
+						            <thead>
+						                <tr class="row">
+						                    <th>ID</th>
+						                   	<th>Tipo</th>
+						                   	<th>Nome</th>			                   	
+						                    <th>Telefone</th>
+						                   	<th>Nextel</th>
+						                   	<th>Celular1</th>			                    
+						                   	<th>Celular2</th>	
+						                   	<th>eMail1</th>	
+						                   	<th>eMail2</th>							                   	
+						                    <th class="actions"></th>		                    
+						                 </tr>
+						            </thead>
+						            <tbody id = "tbodyContato">	
+						            </tbody>
+						         </table>
+					            <div >
+					                <button class="btn btn-default" id="bntIncluirCont" >
+					                  <span class="glyphicon glyphicon-plus"></span>
+					                  Novo Contato
+					                </button>
+					            </div>   						 
+						     </div>
+							</div> <!-- /#list --> 		
+		
+		       </fieldset>
+		    
+		    </p>
+		  </div>
+		</div>
+
+  
+        
+ 
+       <fieldset>
+	      <legend>.</legend>  
+	       <div class="row" >
+		       <div class="col-xs-2">
+		        <button class="btn btn-primary" id="bntGravar">
+		          <span class="glyphicon glyphicon-ok"></span>
+		          Gravar</button>
+		       </div>
+	      	 <div id="msg"></div> <br>  
+		   </div>
+       </fieldset>
+    </form>
+  </header>
+
+
+ <!-- Modal Pesquisa inicio--> 
+ <div class="container">
+  <div class="modal fade" id="modalPesquisa" role="dialog">
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Pesquisa</h4>
+	        </div>
+	        <div class="modal-body">
+				 <div id="top" class="row"> 
+				 
+	               	<div class="col-md-2">
+						  <label for="sel1">Tipo </label>
+						  <select class="form-control" id="cboPessoaPesquisa" >
+						    <option>JURIDICA</option>
+						    <option>FISICA</option>
+						  </select>
+					</div>  			 
+				 
+				    <div class="col-md-3">
+				        <div class="input-group h2">
+				         <!--   
+				            <input name="data[search]" class="form-control" id="txtPesqDocumento" type="text" maxlength="14" onBlur="modulo11(this.value)" placeholder="Documento">
+				            -->
+				            <input name="data[search]" class="form-control" id="txtPesqDocumento" type="text" maxlength="14"  placeholder="Documento">
+				            <span class="input-group-btn">
+				                <button class="btn btn-primary" type="submit" id="btnPesquisarDocumento">
+				                    <span class="glyphicon glyphicon-search"></span>
+				                </button>
+				            </span>
+				        </div>
+				    </div>
+	
+				    <div class="col-md-4">
+				        <div class="input-group h2">
+				            <input name="data[search]" class="form-control" id="txtPesqNome" type="text" placeholder="Nome">
+				            <span class="input-group-btn">
+				                <button class="btn btn-primary" type="submit" id="btnPesquisarNome">
+				                    <span class="glyphicon glyphicon-search"></span>
+				                </button>
+				            </span>
+				        </div>
+				    </div>		 
+				</div> <!-- /#top -->
+	
+				<div id="list" class="row">
+		 		    <div class="table-responsive col-md-12">
+				        <table class="table table-striped" id="tablePesquisa" >
+				            <thead>
+				                <tr class="row">
+				                    <th>ID</th>
+				                   	<th>LK</th>					                    
+				                   	<th>Nome</th>
+				                   	<th></th>		                    	
+				                    <th class="actions"></th>		                    
+				                 </tr>
+				            </thead>
+				            <tbody id = "tbodyPesquisa">	
+				            </tbody>
+				         </table>
+				 
+				     </div>
+				</div> <!-- /#list -->
+     		 </div>
+	         <div class="modal-footer">
+	           <button type="button" class="btn btn-default" data-dismiss="modal" id="btnPesqFechar">Fechar</button>
+	         </div>
+       </div>   
+    </div>
+  </div>
+    </div>
+  <!-- Modal Pesquisa fim-->  
+
+ <!-- Modal Endereço--> 
+ <div class="container">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg" >
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Manutenção de Endereços</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row" >  
+                <div class="col-xs-1">
+                     <label for="endId">ID</label>
+                     <input type="text" class="form-control" id="txtendId" name="id" disabled >  
+                </div> 
+                 
+               	<div class="col-xs-4">
+					  <label for="sel1">Tipo</label>
+					  <select class="form-control" id="cboEndTipo" >
+					    <option>COBRANÇA</option>
+					    <option>ENTREGA</option>					
+					  </select>
+				</div> 
+		
+                <div class="col-xs-1">
+                     <label for="endItemTab"></label>
+                     <input type="text" class="form-control" id="txtendItem" name="idTabela" disabled >  
+                </div> 	
+		
+            </div> 
+            <div class="row" >                
+                <div class="col-xs-5">   
+                    <label for="endEndereco">Endereço</label>
+                    <input type="text" class="form-control" id="txtendEndereco" name="endereco"   autofocus> 
+                </div> 
+                <div class="col-xs-3">   
+                    <label for="endBairro">Bairro</label>
+                    <input type="text" class="form-control" id="txtendBairro" name="Bairro" > 
+                </div> 
+                <div class="col-xs-2">   
+                    <label for="endCep">Cep</label>
+                    <input type="text" class="form-control" id="txtendCep" name="Cep" > 
+                </div> 
+            </div>
+            <div class="row" > 
+                <div class="col-xs-5">   
+                    <label for="endCidade">Cidade</label>
+                    <input type="text" class="form-control" id="txtendCidade" name="cidade" > 
+                </div> 
+                <div class="col-xs-1">   
+                    <label for="endEstado">UF</label>
+                    <input type="text" class="form-control" id="txtendEstado" name="Estado" maxlength="2" onkeyup="this.value = this.value.toUpperCase();"> 
+                </div>  
+            </div>
+        </div>
+        <div >
+        
+         <!-- 
+           <button class="btn btn-primary" id="bntGravarEnd">
+             <span class="glyphicon glyphicon-ok"></span>
+             Gravar
+           </button>
+           <div id="msgEnd"></div>
+           -->
+           
+           <button class="btn btn-primary" data-dismiss="modal" id="bntEndIcluir">
+             <span class="glyphicon glyphicon-ok"></span>
+             OK
+           </button>
+           <div id="msgEnd"></div> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="btnEndFechar">Fechar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    </div>
+ <!-- Modal Endereço fim-->   
+ 
+ <!-- Modal Contatos--> 
+ <div class="container">
+
+  <div class="modal fade" id="ContatosModal" role="dialog">
+    <div class="modal-dialog modal-lg" >
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Manutenção de Contatos</h4>
+        </div>
+        <div class="modal-body" id="DivContatos">
+            <div class="row" >  
+                <div class="col-xs-1">
+                     <label for="contId">ID</label>
+                     <input type="text" class="form-control" id="txtcontId" name="id" disabled >  
+                </div> 
+                
+               	<div class="col-xs-4">
+				  <label for="sel1">Tipo</label>
+				  <select class="form-control" id="cboContTipo" >
+				    <option>ADMINISTRATIVO</option>
+				    <option>FINANCEIRO</option>		
+				    <option>COMERCIAL</option>					    			
+				  </select>
+				</div>                
+                
+            </div> 
+            <div class="row" >                
+                <div class="col-xs-6">   
+                    <label for="contNome">Nome</label>
+                    <input type="text" class="form-control" id="txtcontNome" name="nome"   autofocus> 
+                </div> 
+            </div>  
+            <div class="row" >  
+                <div class="col-xs-3">   
+                    <label for="contTelefone">Telefone</label>
+                    <input type="text" class="form-control" id="txtcontTelefone" name="Telefone" > 
+                </div> 
+                <div class="col-xs-3">   
+                    <label for="contNextel">Nextel</label>
+                    <input type="text" class="form-control" id="txtcontNextel" name="Nextel" > 
+                </div> 
+	            <div class="col-xs-3">   
+	                <label for="ContCelular1">Celular 1</label>
+	                <input type="text" class="form-control" id="txtcontCelular1" name="Celular1" > 
+	            </div> 
+	            <div class="col-xs-3">   
+	                <label for="ContCelular2">Celular 2</label>
+	                <input type="text" class="form-control" id="txtcontCelular2" name="Celular2" > 
+	            </div>              
+
+            </div>
+            <div class="row" > 
+                <div class="col-xs-6">   
+                    <label for="contEmail1">e-Mail 1</label>
+                    <input type="text" class="form-control" id="txtcontEmail1" name="eMail1" > 
+                </div> 
+                <div class="col-xs-6">   
+                    <label for="contEmail2">e-Mail 2</label>
+                    <input type="text" class="form-control" id="txtcontEmail2" name="eMail2" > 
+                </div>  
+            </div> 
+       
+	         <div >
+	           <button class="btn btn-primary" data-dismiss="modal" id="bntContIncluir">
+	             <span class="glyphicon glyphicon-ok"></span>
+	             OK
+	           </button>
+	           <div id="msgEnd"></div> 
+	        </div>           
+            
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal" id="btnContFechar">Fechar</button>
+	        </div>                  
+        </div>
+</div> 
+      
+    </div>
+  </div>
+  </div>
+ <!-- Modal Contatos fim-->  
+ 
+
+  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.tabletojson.min.js"></script>
+  <script src="./resources/lib/jquery/JUtil.js"></script> 
+  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="./resources/pessoa.js"></script>  
+    
+</body>
+</html>

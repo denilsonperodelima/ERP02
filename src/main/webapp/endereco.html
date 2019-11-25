@@ -1,0 +1,60 @@
+    <meta charset="utf-8">
+    <fieldset class="fieldsetenderecos">	   
+		<legend id="legendendereco"></legend>								
+		<div class=row id="linhaenderecocabec">
+               <div class="col-xs-1" id="idlabel">							
+                   <label for="">Id</label>	
+               </div> 	
+              	<div class="col-xs-2" id="tipolabel">
+				  <label for="sel1">Tipo</label>
+			</div> 	
+                  <div class="col-xs-2" id="enderecolabel">
+                       <label for="Relac">Endereço</label>
+                  </div> 	
+                  <div class="col-xs-2" id="bairrolabel">
+                       <label for="Relac">Bairro</label>
+                  </div> 					                    		
+                  <div class="col-xs-2" id="ceplabel">
+                       <label for="Relac">Cep</label>
+                  </div> 				                    
+                  <div class="col-xs-2" id="cidadelabel">
+                       <label for="Relac">Cidade</label>
+                  </div> 		
+                  <div class="col-xs-1" id="uflabel">
+                       <label for="Relac">UF</label>
+                  </div> 				                    									                 			                         						
+            </div> 						
+		<ul class="luendereco">
+		<li id="liendereco">
+          		 <div class=row id="linhaendereco">
+                   <div class="col-xs-1">		                    
+                        <input type="text" class="form-control" id="idendereco" name="id" disabled value="null"> 
+                   </div> 	
+               	<div class="col-xs-2" id="tiporow">
+					  <select class="form-control" id="tipoendereco" name="tipo">			
+					  </select>
+				</div> 									
+                   <div class="col-xs-4" id="enderecorow">
+                        <input type="text" class="form-control" id="logradouro" name="logradouro" autocomplete="off"> 
+                   </div> 										                    			           		 	
+                   <div class="col-xs-2" id="bairrorow">
+                        <input type="text" class="form-control" id="bairro" name="bairro" autocomplete="off"> 
+                   </div> 		
+                   <div class="col-xs-2" id="ceprow">
+                        <input type="text" class="form-control" id="cep" name="cep" autocomplete="off"> 
+                   </div> 				                    
+                   <div class="col-xs-2" id="cidaderow">
+                        <input type="text" class="form-control" id="cidade" name="cidade" autocomplete="off"> 
+                   </div> 		
+                   <div class="col-xs-1" id="ufrow">
+                        <input type="text" class="form-control" id="uf" name="uf" autocomplete="off" maxlength="2"> 
+                   </div> 	
+                   <div class="col-xs-1">
+			         <button class="btn" id="adicionarendereco">								         						  
+			           <span id="spanadicionarendereco" class="glyphicon glyphicon-plus"></span>
+			          </button>	
+	            </div>			                    
+            </div>  
+        <li>			             	
+   </ul>				            				     
+      </fieldset>

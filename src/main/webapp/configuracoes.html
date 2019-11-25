@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ERP - Configurações</title>
+    <link rel="stylesheet" href="./resources/css/nav.css"/> 
+    <link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">        
+</head>
+<body>
+  <header>
+  
+     <script src="./resources/lib/jquery/jquery.min.js">
+     </script>
+    <form id="configuracoes" > 
+  	    <div id="includeNav"></div>
+		<br/>					                            		  	    
+		<ul class="nav nav-tabs" style="margin-top: -2%;">
+		  <li class="active"><a data-toggle="tab" href="#subgrupo">Combo Itens</a></li>
+		</ul>
+		  		  
+		  <div id="subgrupo" class="tab-pane fade in active">
+		    <p>
+			     <fieldset class="fieldsetsubgrupo">	   
+						<legend id="legendsubgrupo"></legend>	
+						<div class=row style="margin-left: +2%">	
+				               	<div class="col-xs-2">
+				               	      <label>Página</label>
+									  <select class="form-control" id="combogrupo" name="grupo">			
+									  </select>
+								</div> 	
+				               	<div class="col-xs-3">
+				               	      <label>Combo</label>
+									  <select class="form-control" id="combosubgrupo" name="subgrupo">			
+									  </select>
+								</div> 									
+			                    <div class="col-xs-1">
+							         <button class="btn" id="pesqsubgrupo" style="margin-top: 33%; margin-left: -25%;">
+							           <span class="glyphicon glyphicon glyphicon-search"></span>
+							          </button>	
+					            </div>  						            																						
+		                </div> 		
+		                <br><br/>		                
+				        <div class="row" style="margin-left: +0%">			        
+					        <ul class="ulsubgrupoitens">
+								<li class="lisubgrupoitens">
+					           		 <div class=row id="linhasubgrupoitens" >
+					                    <div class="col-xs-1">		                    
+					                         <input type="text" class="form-control" id="idsubgrupoitens" name="id"  disabled> 
+					                    </div> 											
+					                    <div class="col-xs-4" id="descricaosubgrupoitensrow">
+					                         <input type="text" class="form-control" id="descricaosubgrupoitens" name="descricao" style="margin-left: -12%" > 
+					                    </div> 					                    
+					                    <div class="col-xs-1">
+									         <button class="btn" id="adicionarsubgrupoitens" style="margin-left: -80%">								         						  
+									           <span id="spanadicionarsubgrupoitens" class="glyphicon glyphicon-plus"></span>
+									          </button>	
+							            </div>
+					                    <div class="col-xs-3" id="dtexcluisubgrupoitensrow">
+					                         <input type="hidden" class="form-control" id="dtexcluisubgrupoitens" name="dtexclui" > 
+					                    </div>  							            						                    					                    			                    									                    			           		 	
+						            </div> 	
+							        <div class="row" style="margin-top: 3%">
+								       <div class="col-xs-2">
+								        <button class="btn btn-primary" id="gravarsubgrupo">
+								          <span class="glyphicon glyphicon-ok"></span>
+								          Gravar</button>
+								       </div>
+							      	   <div id="msgcombo">
+							      	   </div> <br>  
+								    </div>							            
+				                </li>								            					        
+			                </ul>						        			        		            	        
+			     		 </div>
+								        		            				     
+			       </fieldset>
+		  </div>
+
+
+        
+ 
+       <fieldset>
+	      <legend>.</legend>  
+
+       </fieldset>
+    </form>
+  </header>
+
+  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.tabletojson.min.js"></script>
+  <script src="./resources/lib/jquery/JUtil.js"></script> 
+  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="./resources/configuracoes.js"></script>  
+  <script src="./resources/configuracoes-combo.js"></script> 
+  <script src="./resources/lib/jquery/sweetalert.all.js"></script>  
+
+     <script> 
+        $(document).ready(function(){
+		    $(function(){
+		      $("#includeNav").load("nav.html"); 
+		    });	    
+	    });		    
+     </script> 
+         
+</body>
+<style>
+
+#idlabel {
+    margin-left: 4%;
+}
+#tipolabel {
+    margin-left: -6%;
+}
+#enderecolabel {
+    margin-left: -7%;
+}
+#bairrolabel {
+    margin-left: +14%;
+}
+#ceplabel {
+    margin-left: -2.5%;
+}
+#cidadelabel {
+    margin-left: -8%;
+}
+#uflabel {
+    margin-left: -2.5%;
+}
+#id {
+   width: 80%;
+}
+#idendereco, #idsubgrupo {
+   width: 50%;
+}
+ #idsubgrupoitens {
+   width: 60%;
+}
+#uf, #ufnf {
+   width: 60%;
+}
+#cep, #cepnf {
+   width: 60%;
+}
+.fieldsetenderecos #tiporow {
+    margin-left: -5%;
+    width: 12%;
+}
+.fieldsetenderecos #enderecorow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #bairrorow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #ceprow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #cidaderow {
+    margin-left: -7.8%;
+}
+.fieldsetenderecos #ufrow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #adicionarendereco {
+    margin-left: -60%;
+    //margin-top: 30%;
+}
+.liendereco {
+    list-style-type: none;
+}
+
+#treeview, #treeview ul {
+    list-style: none;
+}
+ 
+
+.ulsubgrupoitens, ulsubgrupoitens ul {
+    list-style: none;
+}
+
+ .ulsubgrupoitens input[type=text]:disabled {
+  background: white;
+}
+
+.limudacordisabled {
+  display: block;
+}
+
+.active {
+     display: block;
+}
+.tootipRemove {
+    data-toggle :"tooltip";
+    title: "Clique para deleção"
+}
+   .ulsubgrupoitens  > ul {
+      display: none;
+  } 
+  
+  #treeview .parent {
+      position: relative;
+      cursor: pointer; 
+  }
+
+  #treeview .close {
+     display: block;
+  }
+  #treeview .parent > ul {
+      display: none;
+  }
+</style>
+</html>

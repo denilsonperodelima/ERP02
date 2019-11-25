@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ERP - Manutenção de Vendedor</title>
+    <link rel="stylesheet" href="./resources/css/nav.css"/> 
+    <link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">        
+</head>
+<body>
+  <header>
+  
+     <script src="./resources/lib/jquery/jquery.min.js">
+     </script>
+    <form id="vendedorcadastro" > 
+  	    <div id="includeNav"></div>
+
+               <div class="row">  
+ 		        <div class="col-xs-1">
+		         <button class="btn btn-primary" id="novovendedorcadastro" data-toggle="tooltip" data-placement="bottom" title="CTRL + N" style="margin-top: 32%">
+		           <span class="glyphicon glyphicon-plus"></span>
+		           Novo     </button>
+		        </div>  
+                <div class="col-xs-1">   
+                    <label >ID</label>
+                    <input type="text" class="form-control" id="id" name="id" Disabled> 
+                </div>                                                  		               	
+               	<div class="col-xs-2">
+					  <label for="sel1">Tipo Pessoa</label>
+					  <select class="form-control" id="tipopessoa">						    		
+					  </select>
+				</div>  
+				
+                   <div class="col-xs-2">   
+                       <label id="lbldocumento">Documento</label>
+                       <input type="text" class="form-control" id="documento" name="documento" > 
+                   </div>  
+                   
+                    <div class="col-xs-1">
+				         <button class="btn " id="bntEditarDoc">
+				           <span class="glyphicon glyphicon glyphicon-search"></span>
+				          </button>	
+		            </div> 	
+		                               
+ 		           <div class="col-xs-4" id="nomediv">   
+                        <label id="lblnome">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome"  > 
+                    </div> 
+		                                     
+                    <div class="col-xs-1">
+				         <button class="btn" id="consultarnome">
+				           <span class="glyphicon glyphicon glyphicon-search"></span>
+				          </button>	
+		            </div>   			            	                                                                                
+        </div>
+		<br/>					                            		  	    
+		<ul class="nav nav-tabs">
+		  <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
+		  <li><a data-toggle="tab" href="#endereço">Endereços</a></li>	  
+		  <li><a data-toggle="tab" href="#contato">Contatos</a></li>
+		  <li><a data-toggle="tab" href="#banco">Bancos</a></li>		  	
+		  <li><a data-toggle="tab" href="#produto">Produtos</a></li>			  	  
+		</ul>
+		
+		<div class="tab-content">
+		  <div id="cadastro" class="tab-pane fade in active">
+		    <p>
+		                <div class="row">    
+			               	<div class="col-xs-2">
+								  <label for="sel1">Status</label>
+								  <select class="form-control" id="situacaovendedor" name="situacao">						    		
+								  </select>
+							</div>	
+			               	<div class="col-xs-2">
+								  <label for="sel1">Tipo</label>
+								  <select class="form-control" id="tipovendedor" name="tipo">						    		
+								  </select>
+							</div>	
+		                    <div class="col-xs-4">
+		                         <label>E-mail Login</label>
+		                         <input type="text" class="form-control" id="emailvendedor" name="email" value = "">   
+		                    </div> 
+			               	<div class="col-xs-2"  style="margin-top: 1.9%; margin-left: -2%">	
+						        <button class="btn" id="consultarnomeusuario">
+				                  <span class="glyphicon glyphicon glyphicon-search"></span>
+				                </button>				               							
+							</div>	
+			                <div class="row" >
+				                    <div class="col-xs-1">
+				                         <input type="hidden" class="form-control" id="tiporelacionamento" name="tiporelacionamento" disabled > 
+				                    </div> 				                    		                    	                    		                    	                		                	               	 
+			                 </div>																							                           		               	  		                    	                                                                   
+		                </div>
+	                	<br></br>                	 	                
+
+		  </div>		  
+		  <div id="endereço" class="tab-pane fade">
+		    <p>
+			     <fieldset class="fieldsetenderecos">	   
+						<legend id="legendendereco"></legend>								
+						<div class=row id="linhaenderecocabec">
+			                <div class="col-xs-1" id="idlabel">							
+			                    <label for="">Id</label>	
+			                </div> 	
+			               	<div class="col-xs-2" id="tipolabel">
+								  <label for="sel1">Tipo</label>
+							</div> 	
+		                    <div class="col-xs-2" id="enderecolabel">
+		                         <label for="Relac">Endereço</label>
+		                    </div> 	
+		                    <div class="col-xs-2" id="bairrolabel">
+		                         <label for="Relac">Bairro</label>
+		                    </div> 					                    		
+		                    <div class="col-xs-2" id="ceplabel">
+		                         <label for="Relac">Cep</label>
+		                    </div> 				                    
+		                    <div class="col-xs-2" id="cidadelabel">
+		                         <label for="Relac">Cidade</label>
+		                    </div> 		
+		                    <div class="col-xs-1" id="uflabel">
+		                         <label for="Relac">UF</label>
+		                    </div> 				                    									                 			                         						
+			             </div> 						
+						<ul class="luendereco">
+						<li class="liendereco">
+			           		 <div class=row id="linhaendereco">
+			                    <div class="col-xs-1">		                    
+			                         <input type="text" class="form-control" id="idendereco" name="id" disabled value="null"> 
+			                    </div> 	
+				               	<div class="col-xs-2" id="tiporow">
+									  <select class="form-control" id="tipoendereco" name="tipo">			
+									  </select>
+								</div> 									
+			                    <div class="col-xs-4" id="enderecorow">
+			                         <input type="text" class="form-control" id="logradouro" name="logradouro" autocomplete="off"> 
+			                    </div> 										                    			           		 	
+			                    <div class="col-xs-2" id="bairrorow">
+			                         <input type="text" class="form-control" id="bairro" name="bairro" autocomplete="off"> 
+			                    </div> 		
+			                    <div class="col-xs-2" id="ceprow">
+			                         <input type="text" class="form-control" id="cep" name="cep" autocomplete="off"> 
+			                    </div> 				                    
+			                    <div class="col-xs-2" id="cidaderow">
+			                         <input type="text" class="form-control" id="cidade" name="cidade" autocomplete="off"> 
+			                    </div> 		
+			                    <div class="col-xs-1" id="ufrow">
+			                         <input type="text" class="form-control" id="uf" name="uf" autocomplete="off" maxlength="2"> 
+			                    </div> 	
+			                    <div class="col-xs-1">
+							         <button class="btn" id="adicionarendereco">								         						  
+							           <span id="spanadicionarendereco" class="glyphicon glyphicon-plus"></span>
+							          </button>	
+					            </div>			                    
+				            </div>  
+				        <li>			             	
+				   </ul>				            				     
+			       </fieldset>
+		  </div>
+		  		  
+		  <div id="contato" class="tab-pane fade">
+		    <p>
+			     <fieldset class="fieldsetcontato">	   
+						<legend id="legendcontato"></legend>								
+						<div class=row id="linhacontatocabec">
+			                <div class="col-xs-1" id="idcontatolabel" style="margin-left: +8%">							
+			                    <label for="">Id</label>	
+			                </div> 	
+			               	<div class="col-xs-2" id="tipocontatolabel" style="margin-left: -5.5%">
+								  <label for="sel1">Tipo</label>
+							</div> 	
+		                    <div class="col-xs-2" id="enderecocontatolabel"  style="margin-left: -4.5%">
+		                         <label for="Relac">Nome</label>
+		                    </div> 					                    									                 			                         						
+			             </div> 						
+						<ul class="ulcontato">
+							<li class="licontato">						
+				           		 <div class=row id="linhacontato">
+				                    <div class="col-xs-1">
+								         <button class="btn" id="expandircontatoitens">								         						  
+								           <span id="spanexpandircontatoitens" class="glyphicon glyphicon-phone-alt"></span>
+								          </button>	
+						            </div>				           		 
+				                    <div class="col-xs-1">		                    
+				                         <input type="text" class="form-control" id="idcontato" name="id" disabled value="null" style="margin-left: -70%; width: 60%"> 
+				                    </div> 	
+					               	<div class="col-xs-2" id="tipcontatoorow">
+										  <select class="form-control" id="tipocontato" name="tipo" style="margin-left: -60%; width: 80%">			
+										  </select>
+									</div> 									
+				                    <div class="col-xs-4" id="nomecontatorow">
+				                         <input type="text" class="form-control" id="nomecontato" name="nome" style="margin-left: -42%; width: 100%"> 
+				                    </div> 	
+				                    <div class="col-xs-1">
+								         <button class="btn" id="adicionarcontato" style="margin-left: -240%">								         						  
+								           <span id="spanadicionarcontato" class="glyphicon glyphicon-plus"></span>
+								          </button>	
+						            </div>					                    			                    			                    									                    			           		 	
+					            </div>  	               		               				            
+					        </li>			             	
+				        </ul>		
+								        		            				     
+			       </fieldset>
+		  </div>
+		  <div id="banco" class="tab-pane fade">
+		    <p>
+	         <div class="row">  
+		                    <div class="col-xs-2">
+		                         <label id="lblid">Id</label>
+		                         <input type="text" class="form-control" style="width: 20%" id="idbanco" name="id" value = "">   
+		                    </div> 	   
+		                    <div class="col-xs-2" style="margin-left: -12%">
+		                         <label id="lblnomebanco">Código</label>
+		                         <input type="text" class="form-control" style="width: 30%" id="codigobanco" name="codigo" value = "">   
+		                    </div> 			                            
+		                    <div class="col-xs-2" style="margin-left: -10%">
+		                         <label id="lblnomebanco">Nome</label>
+		                         <input type="text" class="form-control" id="nomebanco" name="nome" value = "">   
+		                    </div> 			                           		               	  
+		                    <div class="col-xs-2">
+		                         <label id="lblcontabanco">Conta</label>
+		                         <input type="text" class="form-control" id="contabanco" name="conta" value = "">   
+		                    </div> 	 
+		                    <div class="col-xs-5">
+		                         <label id="lblobsbanco">Observação</label>
+		                         <input type="text" class="form-control" id="obsbanco" name="obs" value = ""> 
+		                    </div> 	
+		                    <div class="col-xs-1">
+						         <button class="btn" id="adicionarbanco" style="margin-left: -20%;margin-top: 30%">								         						  
+						           <span id="spanadicionarbanco" class="glyphicon glyphicon-plus"></span>
+						          </button>	
+				            </div>		                    	                                                                   
+		                </div>	                 
+		                <br/>		 
+		  </div>	  
+		  <div id="produto" class="tab-pane">
+		    <p>
+		       <div class="row" >		    
+	                  <div class="col-xs-2">
+	                       <label id="lblid">Id</label>
+	                       <input type="text" class="form-control" style="width: 20%" id="idproduto" name="id" value = "">   
+	                  </div> 	   			                            
+	                  <div class="col-xs-2" style="margin-left: -10%">
+	                       <label id="lblnomeproduto">Nome</label>
+	                       <input type="text" class="form-control" id="nomeproduto" name="nome" value = "">   
+	                  </div> 
+	          </div>        		 
+		  </div>		  
+       </div> 
+        
+ 
+       <fieldset>
+			<hr />
+	       <div class="row" >
+		       <div class="col-xs-2">
+		        <button class="btn btn-primary" id="gravarvendedorcadastro">
+		          <span class="glyphicon glyphicon-ok"></span>
+		          Gravar</button>
+		       </div>
+	      	 <div id="msg"></div> <br>  
+		   </div>
+       </fieldset>
+    </form>
+  </header>
+
+ <!--     
+<iframe src="./resources/modais/decisaosimounao.html">
+</iframe>
+-->
+
+ <div id="includemodalpessoaconsultanome"></div>
+
+  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.tabletojson.min.js"></script>
+  <script src="./resources/lib/jquery/JUtil.js"></script> 
+  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="./resources/vendedorcadastrocon.js"></script>  
+  <script src="./resources/vendedorcadastro.js"></script>    
+     <script> 
+        $(document).ready(function(){
+		    $(function(){
+		      $("#includeNav").load("nav.html"); 
+		    });	
+		    $(function(){
+		        $("#includemodalpessoaconsultanome").load("./resources/modais/pessoaconsultanome.html"); 
+		    });			    
+	    });		    
+     </script> 
+         
+</body>
+<style>
+
+#idlabel {
+    margin-left: 4%;
+}
+#tipolabel {
+    margin-left: -6%;
+}
+#enderecolabel {
+    margin-left: -7%;
+}
+#bairrolabel {
+    margin-left: +14%;
+}
+#ceplabel {
+    margin-left: -2.5%;
+}
+#cidadelabel {
+    margin-left: -8%;
+}
+#uflabel {
+    margin-left: -2.5%;
+}
+#id {
+   width: 80%;
+}
+#idendereco, #idcontato {
+   width: 50%;
+}
+ #idcontatoitens {
+   width: 150%;
+}
+#uf, #ufnf {
+   width: 60%;
+}
+#cep, #cepnf {
+   width: 60%;
+}
+.fieldsetenderecos #tiporow {
+    margin-left: -5%;
+    width: 12%;
+}
+.fieldsetenderecos #enderecorow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #bairrorow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #ceprow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #cidaderow {
+    margin-left: -7.8%;
+}
+.fieldsetenderecos #ufrow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #adicionarendereco {
+    margin-left: -60%;
+    //margin-top: 30%;
+}
+.liendereco {
+    list-style-type: none;
+}
+
+#treeview, #treeview ul {
+    list-style: none;
+}
+ 
+
+.ulcontatoitens, ulcontatoitens ul {
+    list-style: none;
+}
+  .xxxulcontatoitens {
+      position: relative;
+      cursor: pointer; 
+      display: none;
+  }
+
+.limudacordisabled {
+  display: block;
+}
+
+.active {
+     display: block;
+}
+
+   .ulcontatoitens  > ul {
+      display: none;
+  } 
+  
+  #treeview .parent {
+      position: relative;
+      cursor: pointer; 
+  }
+
+  #treeview .close {
+     display: block;
+  }
+  #treeview .parent > ul {
+      display: none;
+  }
+</style>
+</html>

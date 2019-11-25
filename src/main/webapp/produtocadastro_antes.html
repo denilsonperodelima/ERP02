@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ERP</title>
+    <link rel="stylesheet" href="./resources/css/PessoabuscaEstilo.css"/> 
+    <link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">     
+</head>
+
+<body>
+ <header>
+    <form id="frmProduto" >
+        <div id="includeNav"></div>
+        <fieldset>
+        	    <legend>Produto</legend> 
+                <div class="row">  
+	 		        <div class="col-xs-1">
+			         <button class="btn " id="bntNovo">
+			           <span class="glyphicon glyphicon-plus"></span>
+			           Novo     </button>
+			        </div>                  
+	 		        <div class="col-xs-1">
+			         <button class="btn btn-warning" id="bntConsultar">
+			           <span class="glyphicon glyphicon glyphicon-search"></span>
+			           Pesquisar</button>
+			        </div>   			        
+                    <div class="col-xs-1">   
+                        <label for="">ID</label>
+                        <input type="text" class="form-control" id="txtId" name="id" disabled> 
+                    </div>                      			                                     		               	
+                     <div class="col-xs-5">   
+                        <label for="">Nome</label>
+                        <input type="text" class="form-control" id="txtNome" name="nome" > 
+                    </div> 
+ 	               	<div class="col-xs-2">
+						  <label for="sel1">Categoria</label>
+						  <select class="form-control" id="cboCategoria" name="categoria" required>
+						    <option>CATEGORIA 1</option>
+						    <option>CATEGORIA 2</option>					
+						  </select>
+					</div>                                                    
+                </div>
+
+                <div class="row">  
+ 	               	<div class="col-xs-2">
+						  <label for="sel1">Unidade</label>
+						  <select class="form-control" id="cboUnidade" name="unidade" required>
+						    <option>PEÇA</option>
+						    <option>GARRAFA</option>					
+						  </select>
+					</div>                      
+                     <div class="col-xs-2">   
+                        <label for="">Peso Bruto em Kg</label>
+                        <input type="text" class="form-control" id="txtPesoBruto" name="pesobruto"  value="0"> 
+                    </div>  
+                     <div class="col-xs-2">   
+                        <label for="">Peso Liquído em Kg</label>
+                        <input type="text" class="form-control" id="txtPesoLiquido" name="pesoliquido" value = "0"> 
+                    </div>                     
+                     <div class="col-xs-2">   
+                        <label for="">Tamanho em m3</label>
+                        <input type="text" class="form-control" id="txtTamanho" name="tamanho" value = "0" > 
+                    </div>                   
+                </div>  
+                              
+                <div class="row">               		               	
+
+                    <div class="col-xs-2">   
+                        <label for="">Localização no Estoque</label>
+                        <input type="text" class="form-control" id="txtLocalEstoque" name="localestoque" value = ""> 
+                    </div> 
+                    <div class="col-xs-2">   
+                        <label for="">Estoque</label>
+                        <input type="text" class="form-control" id="txtEstoque" name="estoque" value = "0" > 
+                    </div>  
+                    <div class="col-xs-2">   
+                        <label for="">Estoque Minimo</label>
+                        <input type="text" class="form-control" id="txtEstoqueMin" name="estoqueminimo" value = "0"> 
+                    </div>                                                     
+                </div>
+
+                <div class="row" >
+                    <div class="col-xs-2">   
+                        <label for="nascimento">Valor Venda</label>
+                        <input type="text" class="form-control" id="txtvalorvenda" name="valorvenda" value = "0"> 
+                    </div> 
+                    <div class="col-xs-2">
+                         <label for="rg">Valor Custo</label>
+                         <input type="text" class="form-control" id="txtvalorcusto" name="valorcusto" value = "0">   
+                    </div> 
+                    <div class="col-xs-3">
+                         <label for="rg">Fornecedor</label>
+                         <input type="text" class="form-control" id="txtfornecedor" name="fornecedor" value = "">   
+                    </div>                     
+                    <div class="col-xs-3">
+                         <label for="rg"></label>
+                         <input type="text" class="form-control" id="txtidempresa" name="id_empresa">   
+                    </div>                      </div>
+                <br/>
+
+	   </fieldset>
+       <fieldset>
+	      <legend>...</legend>  
+	       <div class="row" >
+		       <div class="col-xs-2">
+		        <button class="btn btn-primary" id="gravarproduto">
+		          <span class="glyphicon glyphicon-ok"></span>
+		          Gravar</button>
+		       </div>
+	      	 <div id="msg"></div> <br>  
+		   </div>
+       </fieldset>
+    </form>
+
+</header>
+
+ <!-- Modal Pesquisa inicio--> 
+ <div class="container">
+  <div class="modal fade" id="modalPesquisa" role="dialog">
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Pesquisa</h4>
+	        </div>
+	        <div class="modal-body">
+				 <div id="top" class="row"> 
+				 	
+				    <div class="col-md-4">
+				        <div class="input-group h2">
+				            <input name="data[search]" class="form-control" id="txtPesqNome" type="text" placeholder="Nome">
+				            <span class="input-group-btn">
+				                <button class="btn btn-primary" type="submit" id="btnPesquisarNome">
+				                    <span class="glyphicon glyphicon-search"></span>
+				                </button>
+				            </span>
+				        </div>
+				    </div>		 
+				</div> <!-- /#top -->
+	
+				<div id="list" class="row">
+		 		    <div class="table-responsive col-md-12">
+				        <table class="table table-striped" id="tablePesquisa" >
+				            <thead>
+				                <tr class="row">
+				                    <th>ID</th>				                    
+				                   	<th>Nome</th>
+				                   	<th></th>		                    	
+				                    <th class="actions"></th>		                    
+				                 </tr>
+				            </thead>
+				            <tbody id = "tbodyPesquisa">	
+				            </tbody>
+				         </table>
+				 
+				     </div>
+				</div> <!-- /#list -->
+     		 </div>
+	         <div class="modal-footer">
+	           <button type="button" class="btn btn-default" data-dismiss="modal" id="btnPesqFechar">Fechar</button>
+	         </div>
+       </div>   
+    </div>
+  </div>
+    </div>
+  <!-- Modal Pesquisa fim-->  
+
+  <script src="./resources/lib/jquery/jquery.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.tabletojson.min.js"></script>
+  <script src="./resources/lib/jquery/JUtil.js"></script> 
+  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="./resources/arpzprod.js"></script>  
+	  <script> 
+	    $(function(){
+	      $("#includeNav").load("nav.html"); 
+	    });
+	    $(function(){
+	        $("#includeModalPesquisa").load("modalPesquisa.html"); 
+	      });
+	  </script>     
+</body>
+</html>

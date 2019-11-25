@@ -1,0 +1,71 @@
+ <!-- Modal Pesquisa inicio--> 
+ <div class="container">
+  <div class="modal fade" id="modalpessoaconsultanome" role="dialog">
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Pesquisa</h4>
+	          <h4 id="modalrelac" class="modal-title"></h4>
+	        </div>
+	        <div class="modal-body">	        
+				 <div id="top" class="row"> 
+				    <div class="col-md-2" style="margin-top: 2.3%">
+ 						  <select class="form-control" id="modaltipopessoa" name="tipo">			
+							    <option>JURIDICA</option> 	
+							    <option>FISICA</option>									    
+							    <option>OUTRO</option> 								    					  			
+						  </select>	
+				    </div>					 
+				    <div class="col-md-4">			    
+				        <div class="input-group h2">
+				            <input name="data[search]" class="form-control" id="docpesquisa" type="text" placeholder="Documento">
+				            <span class="input-group-btn">
+				                <button class="btn btn-primary" type="submit" id="botaopesquisardoc">
+				                    <span class="glyphicon glyphicon-search"></span>
+				                </button>
+				            </span>
+				        </div>
+				    </div>			 
+				    <div class="col-md-5">
+				        <div class="input-group h2">
+				            <input name="data[search]" class="form-control" id="nomepesquisa" type="text" placeholder="Nome">
+				            <span class="input-group-btn">
+				                <button class="btn btn-primary" type="submit" id="botaopesquisarnome">
+				                    <span class="glyphicon glyphicon-search"></span>
+				                </button>
+				            </span>
+				        </div>
+				    </div>		 
+				</div> <!-- /#top -->
+	
+				<div id="list" class="row">
+		 		    <div class="table-responsive col-md-12">
+				        <table class="table table-striped" id="tablePesquisa" >
+				            <thead>
+				                <tr class="row">
+				                    <th>ID</th>				                    
+				                   	<th>Nome</th>
+				                   	<th>Documento</th>				                   	
+				                   	<th>Cidade</th>		                    	
+				                    <th class="actions"></th>		                    
+				                 </tr>
+				            </thead>
+				            <tbody id = "tbodyPesquisa">	
+				            </tbody>
+				         </table>
+				 
+				     </div>
+				</div> <!-- /#list -->
+				<div class="row">
+				<h4 id="msgmodalpessoa"></h4>
+				</div>
+     		 </div>
+	         <div class="modal-footer">
+	           <button type="button" class="btn btn-default" data-dismiss="modal" id="pessoaconsultanomefechar">Fechar</button>
+	         </div>
+       </div>   
+    </div>
+  </div>
+    </div>
+  <!-- Modal Pesquisa fim-->  

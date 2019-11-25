@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ERPxx</title>
+    <link rel="stylesheet" href="./resources/css/pedidoincluir.css"/> 
+    <link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">  
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.css" rel="stylesheet"/>
+</head>
+
+<body>
+	<header>
+    <div id="includeNav"></div>
+ 	<form id = "frmpedidoinclui">	
+           <fieldset>	        
+	        	 <legend style="margin-bottom: 0"></legend> 	
+	        	     	 	    	 
+ 				 <div class="row" style="margin-top: 0"> 
+	                  <div class="col-md-1">   
+	                      <input type="text" class="form-control" id="txtLink" name="link" style="width: 80%" disabled >  
+		              </div>		              			  				 
+ 				      <div class="col-md-4">				 
+	 				        <div class="input-group h2">	 				        
+					            <input name="cliente" class="form-control" id="txtClientePesq" type="text" placeholder="Cliente" style="border-radius: 1px" disabled>
+					            <span class="input-group-btn">
+					                <button class="btn btn-primary"  id="btnClientePesq">
+					                    <span class="glyphicon glyphicon-search"></span>
+					                </button>
+					            </span>
+					        </div>  
+				      </div> 	
+				      			        
+ 				      <div class="col-md-4">				 
+	 				        <div class="input-group h2">	 	 				        
+					            <input name="vendedor" class="form-control" id="txtVendPesq" type="text" placeholder="Vendedor" style="border-radius: 1px" disabled>
+					            <span class="input-group-btn">
+					                <button class="btn btn-primary" type="submit" id="btnPesquisarVend">
+					                    <span class="glyphicon glyphicon-search"></span>
+					                </button>
+					            </span>
+					        </div>  
+				      </div> 
+	                  <div class="col-md-1">   
+	                      <input type="text" class="hidden" id="txtIdPedido" name="link" style="width: 30%" > 
+		              </div>					      					      
+	                  <div class="col-md-1">   
+	                      <input type="text" class="hidden" id="txtIdCliente" name="id_cliente" style="width: 30%" > 
+		              </div>
+	                  <div class="col-md-1">   
+	                      <input type="text" class="hidden" id="txtIdVendedor" name="id_vendedor"  style="width: 30%"> 
+		              </div>		              
+				  </div> 
+	  
+           </fieldset>
+           
+           <fieldset>
+	        	 <legend></legend> 
+           </fieldset>	
+                  	            
+           <fieldset>    
+		 		  <div class="row" style="margin-top: 0%" > 
+		 		  	  <div class="col-md-6">   
+		              </div>	
+		 		  	  <div class="col-md-2">   
+			 		 	  <h4>Itens <span class="label label-default" id="spanItens"></span></h4>
+		              </div>	
+		 		  	  <div class="col-md-2"> 
+			 			  <h4>Valor <span class="label label-default" id="spanValor" ></span></h4>	
+		              </div>				 		  
+		 		  </div>                 
+				<div id="list" class="row">
+		 		    <div class="table-responsive col-md-12">
+				        <table class="table table-striped" id="tablePedidoIncluir" >
+				            <thead>
+				                <tr class="row">
+				                    <th>ID</th>
+				                   	<th>Cod</th>				                    
+				                   	<th>Produto</th>					                    
+				                   	<th>Quantidade</th>				                   			                    
+				                   	<th>Unidade</th>			                   	
+				                   	<th>Valor Unitário</th>	
+				                   	<th>Valor Total</th>		                   				                   		                    	
+				                    <th class="actions"></th>		                    
+				                 </tr>
+				            </thead>
+				            <tbody id = "tbodyPedidoIncluir">	
+				            </tbody>
+				         </table>
+				 
+				     </div>
+				</div> <!-- /#list -->
+           </fieldset>	
+ 
+ 
+        <fieldset>
+	      <legend></legend>  
+	       <div class="row" >
+		       <div class="col-xs-2">
+		        <button class="btn btn-primary" id="bntGravar">
+		          <span class="glyphicon glyphicon-ok"></span>
+		          Gravar</button>
+		       </div>
+	      	 <div id="msg"></div> <br>  
+		   </div>
+       </fieldset> 
+       		
+		</form>
+	</header>
+
+<!-- Modal Exclusão-->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+            </div>
+            <div class="modal-body">Deseja realmente excluir este item? </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fim Modal Exclusão-->
+
+ <div id="includeModalPesquisa"></div>
+	
+	  <script src="./resources/lib/jquery/jquery.min.js"></script>
+	  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  	  <script src="./resources/lib/jquery/jquery-ui.min.js"></script>
+	  <script src="./resources/lib/jquery/JUtil.js"></script> 
+	  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+	  <script src="./resources/pedidoincluir.js"></script>  
+	  
+	  <script> 
+	    $(function(){
+	      $("#includeNav").load("nav.html"); 
+	    });
+	    $(function(){
+		      $("#includeModalPesquisa").load("modalPesquisa.html"); 
+	    });
+	  </script>   
+</body>
+</html>

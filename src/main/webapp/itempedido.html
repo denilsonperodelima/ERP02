@@ -1,0 +1,112 @@
+    <meta charset="utf-8">
+    <fieldset class="fieldsetitempedido">	   							
+		<div class=row id="linhaitempedidocabec">	
+               <div class="col-xs-2" id="iditempedidolabel">
+		          <label for="sel1">id</label>
+	           </div> 	
+                <div class="col-xs-2" id="produtoitemlabel">
+                     <label for="Relac">Produto</label>
+                </div> 	
+                <div class="col-xs-2" id="unidadeitemlabel">
+                     <label for="Relac">Unidade</label>
+                </div> 					                    		
+                <div class="col-xs-2" id="quantidadeitemlabel">
+                     <label for="Relac">Quantidade</label>
+                </div> 				                    
+                <div class="col-xs-2" id="precoitemlabel">
+                     <label for="Relac">Valor unitário</label>
+                </div> 		
+                <div class="col-xs-1" id="valortotalitemlabel">
+                     <label for="Relac">Valor total</label>
+                </div> 				                    									                 			                         						
+            </div> 						
+		<ul class="luitempedido">
+		<li id="liitempedido">
+          		 <div class=row id="linhaitempedido">
+                   <div class="col-xs-1">		                    
+                        <input type="text" class="form-control" id="idpedidoitem" name="id" disabled value="null"> 
+                   </div> 
+                   <div class="hidden">		                    
+                        <input type="text" class="form-control" id="idproduto" name="idproduto" disabled> 
+                   </div> 										
+                   <div class="col-xs-3" id="nomeprodutorow">
+                        <input type="text" class="form-control" id="nomeproduto" name="nomeproduto"> 
+                   </div> 										                    			           		 	
+                   <div class="col-xs-2" id="unidaderow">
+                        <input type="text" class="form-control" id="unidade" name="unidade" disabled> 
+                   </div> 		
+                   <div class="col-xs-1" id="quantidaderow">
+                        <input type="text" class="form-control" id="quantidade" name="quantidade" style="text-align: end"> 
+                   </div> 				                    
+                   <div class="col-xs-1" id="precorow">
+                        <input type="text" class="form-control" id="preco" disabled name="preco" style="width: 150%;text-align: end"> 
+                   </div> 		
+                   <div class="col-xs-2" id="valortotalrow">
+                        <input type="text" class="form-control" id="valortotal" disabled name="valortotal" style="text-align: end"> 
+                   </div> 	
+                   <div class="col-xs-1" id="divbotaoadicionaritempedido">
+			         <button class="btn" id="adicionaritempedido">								         						  
+			           <span id="spanadicionaritempedido" class="glyphicon glyphicon-plus"></span>
+			          </button>	
+	            </div>			                    
+            </div>  
+        <li>			             	
+   </ul>				            				     
+</fieldset>
+<style>
+#unidadex, #quantidadex{
+    width: 40%;
+}
+#idpedidoitem{
+    width: 60%;
+}
+   
+#linhaitempedido, #lidiv{
+    margin-left: -3%;
+}
+#nomeproduto{
+     margin-left: -12%;
+}
+#unidade{
+     margin-left: -30%;
+}
+#quantidade{
+     margin-left: -90%;
+}
+#preco{
+     margin-left: -110%;
+}
+#valortotal{
+     margin-left: -35%;
+}
+#divbotaoadicionaritempedido{
+     margin-left: -6%;
+}
+#iditempedidolabel{
+     margin-left: 2%;
+}
+#produtoitemlabel{
+     margin-left: -11.5%;
+}
+#unidadeitemlabel{
+     margin-left: 6%;
+}
+#quantidadeitemlabel{
+     margin-left: -1%;
+}
+#precoitemlabel{
+     margin-left: -10%;
+}
+#valortotalitemlabel{
+     margin-left: -6%;
+}
+.luitempedido  > li {
+         list-style: none;
+ } 
+ .luitempedido input[type=text]:disabled {
+  background: white;
+}
+.luitempedido #liitempedidodinamico input[type=text]{
+  color: black;
+}
+</style>

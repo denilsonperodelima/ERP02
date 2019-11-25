@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ERP - Manutenção de Funcionário</title>
+    <link rel="stylesheet" href="./resources/css/nav.css"/> 
+    <link rel="stylesheet" href="./resources/lib/bootstrap/css/bootstrap.min.css">    
+</head>
+<body>
+  <header>
+
+     <script src="./resources/lib/jquery/jquery.min.js"></script>
+     	<script> 
+	    $(function(){
+	      $("#includeNav").load("nav.html"); 
+	    });
+     </script>   
+  
+    <form id="frmfuncionariocadastro" >
+  
+  	    <div id="includeNav"></div>
+
+               <div class="row" style="margin-top: -1%;">  
+	 		        <div class="col-xs-1">
+			         <button class="btn btn-primary " id="pesquisarfunc" data-toggle="tooltip" data-placement="bottom" title="ALT + P - Pesquisar para editar"  style="margin-top: 30%"  >
+			           <span class="glyphicon glyphicon-search"></span>
+			           <u>P</u>esquisar     </button>
+			        </div>                
+	 		        <div class="col-xs-1">
+			         <button class="btn btn-primary " id="novo" data-toggle="tooltip" data-placement="bottom" title="ALT + N - Incluir novo funcionário"  style="margin-top: 30%"  >
+			           <span class="glyphicon glyphicon-plus"></span>
+			           <u>N</u>ovo     </button>
+			        </div>                            
+                    <div class="col-xs-1" style="margin-left: -1%; margin-top: 1.8%">
+                        <input type="text" class="form-control" id="idpessoa" name="id" style="width: 50%" disabled > 	
+		            </div> 	
+                    <div class="col-xs-2" style="margin-left: -4%">   
+                        <label >CPF</label>
+                        <input type="text" class="form-control" id="cpfoucnpj" name="documento"> 
+                    </div>   
+                    <div class="col-xs-3">   
+                        <label >Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" value=""> 
+                    </div> 	                                        		                                	 			            	                                                                                
+        </div>
+
+        <hr style="margin-top: 1%">
+            					                            		  	    
+		<ul class="nav nav-tabs">
+		  <li class="active" id="licadastro"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
+		  <li><a data-toggle="tab" href="#endereço">Endereços</a></li>
+		  <li><a data-toggle="tab" href="#contato">Contatos</a></li>
+		  <li><a data-toggle="tab" href="#banco">Bancos</a></li>		  
+<!--	  <li><a data-toggle="tab" href="#permissoes">Permissões de acesso</a></li>	-->
+		  <li><a data-toggle="tab" href="#periodotrabalho">Periodo Trabalho</a></li>
+		  <li><a data-toggle="tab" href="#periodoeventual">Período Eventual</a></li>
+		  <li id="liperiodosuspenso"><a data-toggle="tab" href="#periodosuspenso">Período Suspenso</a></li>		  
+		</ul>
+    		
+		<div class="tab-content">
+		  <div id="cadastro" class="tab-pane fade in active">
+		    <p>	    
+                <div class="row">   
+	               	<div class="col-xs-2">
+						  <label for="">Estado Civil</label>
+						  <select class="form-control" id="EstadoCivil" name="estadocivil" >								    				
+						  </select>
+					</div> 	                            		               	
+                    <div class="col-xs-2">   
+                        <label >Data Nascimento</label>
+                        <input type="text" class="form-control" id="nascimentodata" name="nascimentodata"> 
+                    </div>   
+                    <div class="col-xs-3">   
+                        <label >Cidade Nascimento</label>
+                        <input type="text" class="form-control" id="nascimentocidade" name="nascimentocidade" value=""> 
+                    </div> 
+                    <div class="col-xs-2">   
+                        <label >UF</label>
+                        <input type="text" class="form-control" id="nascimentouf" name="nascimentouf" style="width: 30%" value=""> 
+                    </div>                     
+                </div> 
+                <div class="row">  
+                    <div class="col-xs-2">   
+                        <label >Registro</label>
+                        <input type="text" class="form-control" id="registro" name="registro"> 
+                    </div>                  	                            		               	
+                    <div class="col-xs-2">   
+                        <label >CTPS</label>
+                        <input type="text" class="form-control" id="ctps" name="ctps"> 
+                    </div>   
+                    <div class="col-xs-2">   
+                        <label >RG</label>
+                        <input type="text" class="form-control" id="rg" name="rg" value=""> 
+                    </div> 
+                    <div class="col-xs-2">   
+                        <label >PIS</label>
+                        <input type="text" class="form-control" id="pis" name="pis" value=""> 
+                    </div>                        
+                    <div class="col-xs-1">
+                         <input type="hidden" class="form-control" id="tiporelacionamento" name="tiporelacionamento" disabled > 
+                    </div>                                       
+                </div>   
+                <div class="row">   	                            		               	  
+                    <div class="col-xs-4">   
+                        <label >Nome Pai</label>
+                        <input type="text" class="form-control" id="nomepai" name="nomepai" value=""> 
+                    </div> 
+                    <div class="col-xs-4">   
+                        <label >Nome Mae</label>
+                        <input type="text" class="form-control" id="nomemae" name="nomemae" value=""> 
+                    </div>                     
+                </div> 
+                <div class="row">   	                            		               	
+                    <div class="col-xs-3">   
+                        <label >Admissão</label>
+                        <input type="text" class="form-control" id="admissao" name="admissao" style="width: 40%" value=""> 
+                    </div> 
+                    <div class="col-xs-3" style="margin-left: -12%">   
+                        <label >Demissão</label>
+                        <input type="text" class="form-control" id="demissao" name="demissao" style="width: 40%" value=""> 
+                    </div>                     
+                </div>  
+                <div class="row" >                
+    	             <div id="includetrilhaauditoria"></div> 
+                </div>                                                                
+               <br></br>                                            
+		       <div class="row" >
+			       <div class="col-xs-2">
+			        <button class="btn btn-primary" id="gravarfuncionario">
+			          <span class="glyphicon glyphicon-ok"></span>
+			          Gravar</button>
+			       </div>
+		      	   <div >  
+		      	      <h4 id="msg"></h4>
+		      	   </div> <br>
+			   </div>                                                                                                                   
+		    </p>		    
+		  </div>
+		  <div id="endereço" class="tab-pane fade">
+		    <p>
+		     <div id="includeendereco"></div> 
+		  </div>
+		  		  
+		  <div id="contato" class="tab-pane fade">
+		     <div id="includecontato"></div> 
+		  </div>
+		  
+		  <div id="permissoes" class="tab-pane fade">
+		    <p>			    	
+			    <div class='row'>	
+
+		 		    <div class="col-xs-1">   
+                       <label >id</label>
+                       <input type="text" class="form-control" id="idusuario" name="id"  > 
+	                </div>				    		    
+		 		    <div class="col-xs-1">   
+                       <label >nome</label>
+                       <input type="text" class="form-control" id="nomeusuario" name="nome"  > 
+	                </div>			    
+		 		    <div class="col-xs-4">   
+                       <label >E-mail</label>
+                       <input type="text" class="form-control" id="email" name="email"  > 
+	                </div> 	
+	               	<div class="col-xs-2">
+						  <label for="">Status</label>
+						  <select class="form-control" id="status" name="status" >									    				
+						  </select>
+					</div> 		               					                
+                    <div class="col-xs-1">
+                         <input  type="hidden" class="form-control" id="tipo" name="tipo" value = ""> 
+                    </div>	                    	                 
+	            </div>    
+		        <ul class="ulpermissoes">
+				    <li class="lipermissoes">	 				    
+				    </li>   
+				</ul>     		  
+		                                              
+                <p></p>   
+                                                                       		    
+		  </div>
+		  
+		  <div id="periodotrabalho" class="tab-pane fade">
+		    <p>
+                    <div class=row  style="margin-left: +19%" >
+                       <div class="col-xs-2">
+			              <button class="btn btn-basic " id="semrestricaohorario" data-placement="bottom">
+			              <span class="glyphicon glyphicon-saved"></span>
+			              Sem restrição de horário     </button>
+			          </div>  
+		 		        <div class="col-xs-1" style="margin-left: +7%">
+				         <button class="btn btn-basic " id="comrestricaohorario" data-placement="bottom">
+				           <span class="glyphicon glyphicon-time"></span>
+				           Trabalhar 8 horas/dia     </button>
+				        </div> 				          
+			        </div> 
+			        		    <p>
+			        <fieldset id="fsperiodotrabalho">	   
+						<legend></legend>
+		                <div class="row" style="margin-left: 2%" id="segunda" >  
+		                    <div class="col-xs-1">
+		                        <input  type="hidden" class="form-control" id="diadasemana" name="diadasemana"  style="margin-left: -30%; width: 50%" disabled value="2"> 	
+				            </div>			                
+		                    <div class="col-xs-1"> 
+	        		           <p><b>Segunda</b></p>  
+		                    </div>                 	        		                      		               	
+		                    <div class="col-xs-1">   
+		                        <input type="text" class="form-control" id="horainicioseg" name="horainicio" placeholder="Hr.Inicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">                       
+		                        <input type="text" class="form-control" id="horafimseg" name="horafim" placeholder="Hr.Fim"> 
+		                    </div> 	
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                           <input type="hidden" class="form-control" id="idsegunda" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>	
+				            	                    	                    		                    			                    	                    	                                                
+		                </div>
+		                
+		                <div class="row" style="margin-left: 2%" >  
+		                    <div class="col-xs-1">
+		                        <input type="hidden" class="form-control" id="diadasemana" name="diadasemana"  style="margin-left: -30%; width: 50%" disabled value="3" > 	
+				            </div>	
+		                    <div class="col-xs-1"> 
+	        		           <p><b>Terça</b></p>  
+		                    </div>  			                            		                      		               	
+		                    <div class="col-xs-1">   
+		                        <input type="text" class="form-control" id="horainicioter" name="horainicio" placeholder="Hr.Inicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">                       
+		                        <input type="text" class="form-control" id="horafimter" name="horafim" placeholder="Hr.Fim"> 
+		                    </div> 		
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                           <input type="hidden" class="form-control" id="idterca" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>					            	                    	                    		                    	                    	                                                
+		                </div>
+		                <div class="row" style="margin-left: 2%" >  
+		                    <div class="col-xs-1">
+		                        <input type="hidden" class="form-control" id="diadasemana" name="diadasemana"  style="margin-left: -30%; width: 50%" disabled value="4" > 	
+				            </div>			                
+		                    <div class="col-xs-1"> 
+	        		           <p><b>Quarta</b></p>  
+		                    </div>  	 		                           		                      		               	
+		                    <div class="col-xs-1">   
+		                        <input type="text" class="form-control" id="horainicioqua" name="horainicio" placeholder="Hr.Inicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">                       
+		                        <input type="text" class="form-control" id="horafimqua" name="horafim" placeholder="Hr.Fim"> 
+		                    </div> 		
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                           <input type="hidden" class="form-control" id="idquarta" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>	
+			            	                    	                    	                    	                                                
+		                </div>		                
+		                <div class="row" style="margin-left: 2%" >  
+		                    <div class="col-xs-1">
+		                        <input type="hidden" class="form-control" id="diadasemana" name="diadasemana"  style="margin-left: -30%; width: 50%" disabled value="5" > 	
+				            </div>			                
+		                    <div class="col-xs-1"> 
+	        		           <p><b>Quinta</b></p>  
+		                    </div>  			                            		                      		               	
+		                    <div class="col-xs-1">   
+		                        <input type="text" class="form-control" id="horainicioqui" name="horainicio" placeholder="Hr.Inicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">                       
+		                        <input type="text" class="form-control" id="horafimqui" name="horafim" placeholder="Hr.Fim"> 
+		                    </div> 	
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                           <input type="hidden" class="form-control" id="idquinta" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>		                    		                    	                    	                                                
+		                </div>	
+		                <div class="row" style="margin-left: 2%" >  
+		                    <div class="col-xs-1">
+		                        <input type="hidden" class="form-control" id="diadasemana" name="diadasemana"  style="margin-left: -30%; width: 50%" disabled value="6" > 	
+				            </div>			                
+		                    <div class="col-xs-1"> 
+	        		           <p><b>Sexta</b></p>  
+		                    </div>  			                            		                      		               	
+		                    <div class="col-xs-1">   
+		                        <input type="text" class="form-control" id="horainiciosex" name="horainicio" placeholder="Hr.Inicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">                       
+		                        <input type="text" class="form-control" id="horafimsex" name="horafim" placeholder="Hr.Fim"> 
+		                    </div> 	
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                           <input type="hidden" class="form-control" id="idsexta" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>		                    		                    	                    	                                                
+		                </div>	
+		                <div class="row" style="margin-left: 2%" >  
+		                    <div class="col-xs-1">
+		                        <input type="hidden" class="form-control" id="diadasemana" name="diadasemana"  style="margin-left: -30%; width: 50%" disabled value="7" > 	
+				            </div>			                
+		                    <div class="col-xs-1"> 
+	        		           <p><b>Sábado</b></p>  
+		                    </div>  		                    	        		                      		               	
+		                    <div class="col-xs-1">   
+		                        <input type="text" class="form-control" id="horainiciosab" name="horainicio" placeholder="Hr.Inicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">                       
+		                        <input type="text" class="form-control" id="horafimsab" name="horafim" placeholder="Hr.Fim"> 
+		                    </div> 	
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                           <input type="hidden" class="form-control" id="idsabado" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>		                    		                    	                    	                                                
+		                </div>		
+		                <div class="row" style="margin-left: 2%" >  
+		                    <div class="col-xs-1">
+		                        <input type="hidden" class="form-control" id="diadasemana" name="diadasemana"  style="margin-left: -30%; width: 50%" disabled value=1> 	
+				            </div>			                
+		                    <div class="col-xs-1"> 
+	        		           <p><b>Domingo</b></p>  
+		                    </div>  		                    	        		                      		               	
+		                    <div class="col-xs-1">   
+		                        <input type="text" class="form-control" id="horainiciodom" name="horainicio" placeholder="Hr.Inicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">                       
+		                        <input type="text" class="form-control" id="horafimdom" name="horafim" placeholder="Hr.Fim"> 
+		                    </div> 	
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                           <input type="hidden" class="form-control" id="iddomingo" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>					            	                    		                    	                    	                                                
+		                </div>		                                	                	                
+			       </fieldset>				          	    
+		    </p>
+		  </div>
+ 		  <div id="banco" class="tab-pane fade">
+		    <p>
+				 <div id="includebanco"></div> 		    
+		    </p>
+		  </div>		  
+		  
+		  <div id="periodoeventual" class="tab-pane fade">
+		    <p>
+		      <fieldset>
+	                <div class="row" style="margin-left: 2%" >  	        		                      		               	
+		                    <div class="col-xs-2">   
+		                        <label >Data Inicio</label>
+		                        <input type="text" class="form-control" id="datainicioeve" name="Datainicio"> 
+		                    </div>  
+		                    <div class="col-xs-2">  
+		                        <label >Data Fim</label> 	                    
+		                        <input type="text" class="form-control" id="datafimeve" name="Datafim"> 
+		                    </div> 	
+		                    
+		                    <div class="col-xs-1">   
+		                        <label >Hora Inicio</label>
+		                        <input type="text" class="form-control" id="horainicioeve" name="horainicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">  
+		                        <label >Hora Fim</label> 	                    
+		                        <input type="text" class="form-control" id="horafimeve" name="horafim"> 
+		                    </div> 	
+			 		        <div class="col-xs-1" style="margin-top: 1.8%">
+					         <button class="btn btn-basic " id="limpareventual" data-placement="bottom">
+					           <span class="glyphicon glyphicon-remove"></span> Limpar
+					           </button>
+					        </div> 			                    
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                        <label ></label> 			                        
+		                           <input type="hidden" class="form-control" id="idperiodoeventual" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>	
+				            			                    	                    
+		                </div>
+                					    					
+		      </fieldset>
+		    
+		    </p>
+		  </div>
+
+
+		  <div id="periodosuspenso" class="tab-pane fade">
+		    <p>
+		      <fieldset>
+	                <div class="row" style="margin-left: 2%" >  	        		                      		               	
+		                    <div class="col-xs-2">   
+		                        <label >Data Inicio</label>
+		                        <input type="text" class="form-control" id="datainiciosus" name="Datainicio"> 
+		                    </div>  
+		                    <div class="col-xs-2">  
+		                        <label >Data Fim</label> 	                    
+		                        <input type="text" class="form-control" id="datafimsus" name="Datafim"> 
+		                    </div> 	
+
+			 		        <div class="col-xs-1" style="margin-top: 1.8%">
+					         <button class="btn btn-basic " id="limparsuspenso" data-placement="bottom">
+					           <span class="glyphicon glyphicon-remove"></span> Limpar
+					           </button>
+					        </div> 
+		                    
+		                    <div class="col-xs-1">   
+		                        <input type="hidden" class="form-control" id="horainiciosus" name="horainicio"> 
+		                    </div>  
+		                    <div class="col-xs-1">                      
+		                        <input type="hidden" class="form-control" id="horafimsus" name="horafim"> 
+		                    </div> 						        		                    
+		                    <div class=column>
+		                        <div class="col-xs-1"> 
+		                           <input type="hidden" class="form-control" id="idperiodosuspenso" name="id"  style="margin-left: -30%; width: 50%" disabled > 	
+				                </div>	
+				            </div>		                    	                    
+		                </div>					    					
+		      </fieldset>
+		    
+
+		  </div>
+		  		  
+		</div>
+		<hr></hr>
+    </form>
+  </header>
+  
+ <div id="includemodalsimnao"></div> 
+ <div id="includemodalpessoaconsultanome"></div>
+ 
+  <script src="./resources/lib/jquery/jquery.mask.min.js"></script>
+  <script src="./resources/lib/jquery/jquery.tabletojson.min.js"></script>
+  <script src="./resources/lib/jquery/JUtil.js"></script> 
+  <script src="./resources/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="./resources/pessoaconsultanome.js"></script> 
+  <script src="./resources/decisaosimounao.js"></script> 
+  <script src="./resources/enderecocontrole.js"></script>  
+  <script src="./resources/contatocontrole.js"></script>    
+  <script src="./resources/bancocontrole.js"></script>         
+  <script src="./resources/funcionariocadastro.js"></script>  
+  <script src="./resources/funcionariocadastrocon.js"></script>   
+  <script src="./resources/funcionariocadastrojson.js"></script>  
+  <script src="./resources/lib/jquery/JUtil.js"></script>          
+  <script src="./resources/lib/jquery/sweetalert.all.js"></script>
+  <script src="./resources/trilhaauditoriacontrole.js"></script>   
+  
+      <script> 
+        $(document).ready(function(){
+		    $(function(){
+		      $("#includeNav").load("nav.html"); 
+		    });
+		    $(function(){
+		        $("#includemodalpessoaconsultanome").load("./resources/modais/pessoaconsultanome.html"); 
+		    });	
+		    $(function(){
+		        $("#includemodalsimnao").load("./resources/modais/decisaosimounao.html"); 
+		    });		
+		    $(function(){
+		        $("#includebanco").load("./banco.html"); 
+		    });	
+		    $(function(){
+		        $("#includeendereco").load("./endereco.html"); 
+		    });		
+		    $(function(){
+		        $("#includecontato").load("./contato.html"); 
+		    });		
+			 $(function(){
+			     $("#includetrilhaauditoria").load("./trilhaauditoria.html"); 
+			 });		    
+	    });		    
+     </script>  
+      
+</body>
+<style>
+
+#idlabel {
+    margin-left: 4%;
+}
+#tipolabel {
+    margin-left: -6%;
+}
+#enderecolabel {
+    margin-left: -7%;
+}
+#bairrolabel {
+    margin-left: +14%;
+}
+#ceplabel {
+    margin-left: -2.5%;
+}
+#cidadelabel {
+    margin-left: -8%;
+}
+#uflabel {
+    margin-left: -2.5%;
+}
+#id {
+   width: 80%;
+}
+#idendereco, #idcontato {
+   width: 50%;
+}
+ #idcontatoitens {
+   width: 150%;
+}
+#uf, #ufnf {
+   width: 60%;
+}
+#cep, #cepnf {
+   width: 60%;
+}
+.fieldsetenderecos #tiporow {
+    margin-left: -5%;
+    width: 12%;
+}
+.fieldsetenderecos #enderecorow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #bairrorow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #ceprow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #cidaderow {
+    margin-left: -7.8%;
+}
+.fieldsetenderecos #ufrow {
+    margin-left: -2%;
+}
+.fieldsetenderecos #adicionarendereco {
+    margin-left: -60%;
+    //margin-top: 30%;
+}
+.liendereco {
+    list-style-type: none;
+}
+.ulcontatoitens, ulcontatoitens ul {
+    list-style: none;
+}
+.limudacordisabled {
+  display: block;
+}
+
+.active {
+     display: block;
+}
+
+   .ulcontatoitens  > ul {
+      display: none;
+  } 
+</style>
+</html>

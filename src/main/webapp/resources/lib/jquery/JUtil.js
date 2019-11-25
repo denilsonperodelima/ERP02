@@ -1,7 +1,7 @@
 function getAmbiente(){
 	    //return "http://localhost:8080";
         //return "http://35.225.125.57:8080";
-	    return "http://erp02.herokuapp.com"
+	    return "https://erp02.herokuapp.com";
 }
 
 function getUrlVars(){

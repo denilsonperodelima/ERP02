@@ -98,6 +98,16 @@
 		    //operacaoPOST();		    
   		});	
 
+   		$("#bntEsqueciSenha").click( function (e) {
+
+		    var jsonemail = "{"
+		    jsonemail += '"email": ' + '"' +  $("#email").val() + '"';  
+		    jsonemail += "}"
+		    	
+		    	esquecisenha("/auth/forgot", jsonemail, "")	
+		    	
+  		});	
+   		
    		$(document).on("keyup", function(e) { 
    			if ( e.altKey && ( e.which == 78 ) ) { //ALT + N
 			   $('#btnNovo').trigger('click');

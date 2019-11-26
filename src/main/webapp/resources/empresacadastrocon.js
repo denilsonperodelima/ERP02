@@ -190,3 +190,43 @@
   		        }	  		        		  		      				            
 	    });		
 	}
+	function esquecisenha(url, json, operacao) {
+
+		
+	    //alert("json " + json);
+	    
+	   		$.ajax({
+			  	type: 'POST',
+		    	url: getAmbiente() + url,
+		    	contentType: 'application/json;charset=utf-8',
+		    	method: 'POST',
+			cache: false,
+		        data: json, 
+            beforeSend : function (xhr){
+            	xhr.setRequestHeader('Authorization', sessionStorage.getItem("arpz"))
+            },
+		        success:function(response){	
+		        	 ret = JSON.parse((response));  		        	 	  		        	
+		        	 $('#id').val(JSON.stringify(ret['retorno'].id).replace(/"/g,""));
+		        	 //sessionStorage.setItem("id", $('#id').val());
+		        	 //sessionStorage.setItem("id2", "SUPER");
+		        	 $('#msg').html(JSON.stringify(ret['retorno'].mensagem).replace(/"/g,""));		  		        	 
+		             $('#msg').css("color","blue");
+		        } ,
+		        error:	function(request, status, error) {	  		        	
+  		       	switch (request.status) { 
+  		      	case 422: 
+  		        	data = JSON.parse(JSON.stringify(request.responseJSON));
+  		        	alert(JSON.stringify(data['errors']).replace(/"fieldName":/g,"").replace(/"message":/g,"").replace(/,/g,"\n"));		  		      		
+  		      		break;
+  		      	case 403: 
+  		        	alert("Usuário não autorizado !!!");		  		      		
+  		      		break;	  		      		
+  		      	default:
+  		        	 $('#msg').html( "Erro *** " + JSON.stringify(request.responseJSON));  
+  		             $('#msg').css("color","red");
+  		        }	  		        	
+		    }	
+	  		});	        
+		
+	}

@@ -5,8 +5,8 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 
-import com.velocinotech.erp02.domain.Usuario;
 import com.velocinotech.erp02.domain.Pedido;
+import com.velocinotech.erp02.domain.Usuario;
 
 public abstract class AbstractEmailService implements EmailService {
 	

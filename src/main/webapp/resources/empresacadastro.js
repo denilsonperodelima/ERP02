@@ -99,12 +99,13 @@
   		});	
 
    		$("#bntEsqueciSenha").click( function (e) {
+   			e.preventDefault();		
 
 		    var jsonemail = "{"
 		    jsonemail += '"email": ' + '"' +  $("#email").val() + '"';  
 		    jsonemail += "}"
 		    	
-		    	esquecisenha("/auth/forgot", jsonemail, "")	
+		   	esquecisenha("/auth/forgot", jsonemail, "")	
 		    	
   		});	
    		

@@ -1,12 +1,12 @@
 package com.velocinotech.erp02.services;
 
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.velocinotech.erp02.domain.Pedido;
 import com.velocinotech.erp02.domain.Usuario;
 
-@Component
+@Service
 public interface EmailService {
 
 	void sendOrderConfirmationEmail(Pedido obj);

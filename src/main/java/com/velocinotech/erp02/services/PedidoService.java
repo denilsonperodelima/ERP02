@@ -41,12 +41,8 @@ public class PedidoService {
 	//private ProdutoRepository produtoRepository;
 
 	
-	@Autowired
-	private EmailService emailService;
-	
-
-	
-
+	//@Autowired
+	//private EmailService emailService;
 
 	@Transactional
 	public Pedido insert(Pedido obj) {
@@ -70,7 +66,7 @@ public class PedidoService {
 		}
 		itemPedidoRepository.save(obj.getItens());
 
-		emailService.sendOrderConfirmationEmail(obj);
+		//emailService.sendOrderConfirmationEmail(obj);
 		return obj;
 	}
 	

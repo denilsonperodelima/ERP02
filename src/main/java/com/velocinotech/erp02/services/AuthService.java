@@ -33,9 +33,11 @@ public class AuthService {
 		
 		String newPass = newPassword();
 		usuario.setSenha(pe.encode(newPass));
+
+		emailService.sendNewPasswordEmail(usuario, newPass);
 		
 		usuarioRepository.save(usuario);
-		emailService.sendNewPasswordEmail(usuario, newPass);
+
 	}
 
 	private String newPassword() {

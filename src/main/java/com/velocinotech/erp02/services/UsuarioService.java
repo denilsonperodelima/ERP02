@@ -24,8 +24,8 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repo;
 
-	@Autowired
-	private EmailService emailService;
+	//@Autowired
+	//private EmailService emailService;
 	
 	@Autowired
 	private UsuarioAuthenticationExtra usuextraautentication;
@@ -108,7 +108,7 @@ public class UsuarioService {
 			throw new ObjectNotFoundException(
 					"e-mail não cadastrado!  " +  email);
 		}
-        emailService.sendNewPasswordEmail(obj, obj.getSenha());
+        //emailService.sendNewPasswordEmail(obj, obj.getSenha());
         
 		return "Email enviado!!";
 	}

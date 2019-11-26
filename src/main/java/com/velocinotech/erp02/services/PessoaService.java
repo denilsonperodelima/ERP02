@@ -67,8 +67,8 @@ public class PessoaService {
 	@Autowired
 	private SenhaInicial senhainicial;
 	
-	//@Autowired
-	//private EmailService emailService;
+	@Autowired
+	private EmailService emailService;
 	
 	@Autowired
 	private BCryptPasswordEncoder pe;
@@ -145,7 +145,7 @@ public class PessoaService {
 			
 			usuario.setSenha(pe.encode(novasenha));
 	        
-		    //emailService.sendNewPasswordEmail(usuario, novasenha);
+		    emailService.sendNewPasswordEmail(usuario, novasenha);
 
 		}
 		usuarioRepository.save(obj.getUsuarios());      		
@@ -177,8 +177,6 @@ public class PessoaService {
 	    obj.setEmpresaid(obj.getEmpresa().getId());	     
 
 	    repo.save(obj);
-
-	    System.out.println("saiu salvar " );	
 	    
 		for (Usuario usuario : obj.getUsuarios()) {	
 			Usuario usuariosv = usuarioRepository.findOne(usuario.getId());

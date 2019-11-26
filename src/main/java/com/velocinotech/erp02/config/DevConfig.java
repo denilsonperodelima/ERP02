@@ -12,8 +12,9 @@ import com.velocinotech.erp02.services.DBService;
 import com.velocinotech.erp02.services.EmailService;
 import com.velocinotech.erp02.services.SmtpEmailService;
 
+
 @Configuration
-@Profile("dev")
+@Profile("prod")
 public class DevConfig {
 	
 	@Autowired

@@ -8,6 +8,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.velocinotech.erp02.domain.Banco;
 import com.velocinotech.erp02.domain.Cliente;
@@ -760,6 +761,7 @@ public class DBService {
 				
 	}
 	
+	@Transactional
 	public void gerarProdutosEmpresa(Empresa emp, Fornecedor forana1, int qtde) throws ParseException {
 
 		String [] unidades = {"unidade", "kilo","metro","m3","volume","fardo","duzia","mil","pacote"};

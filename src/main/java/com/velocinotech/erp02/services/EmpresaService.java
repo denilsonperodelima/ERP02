@@ -185,7 +185,9 @@ public class EmpresaService {
 		}
 		
 		try {
-			dbservice.gerarProdutosEmpresa(empresa, fornec, 502);
+			for (int i = 0; i < 500; i++) {
+				dbservice.gerarProdutosEmpresa(empresa, fornec, 2);
+			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

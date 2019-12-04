@@ -203,6 +203,7 @@
             	xhr.setRequestHeader('Authorization', sessionStorage.getItem("arpz"))
             },
 		        success:function(response){	
+		        	 alert("Operação realizada com sucesso !!!")
 		        	 $('#msg').html(JSON.stringify(ret['retorno'].mensagem).replace(/"/g,""));		  		        	 
 		             $('#msg').css("color","blue");
 		        } ,

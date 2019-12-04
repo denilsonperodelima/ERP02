@@ -203,15 +203,36 @@
             	xhr.setRequestHeader('Authorization', sessionStorage.getItem("arpz"))
             },
 		        success:function(response){	
-		        	alert("retornou ok")
 		        	 $('#msg').html(JSON.stringify(ret['retorno'].mensagem).replace(/"/g,""));		  		        	 
 		             $('#msg').css("color","blue");
 		        } ,
-		        error:	function(request, status, error) {	 
-		        	alert("retornou erro")   
+		        error:	function(request, status, error) {	  
  		        	 $('#msg').html( "Erro *** " + JSON.stringify(request));  
 	                 $('#msg').css("color","red");
 		    }	
 	  		});	        
 		
 	}
+	function gerarprodutos(url, json, operacao) {
+	    
+   		$.ajax({
+		  	type: 'POST',
+	    	url: getAmbiente() + url,
+	    	contentType: 'application/json;charset=utf-8',
+	    	method: 'POST',
+		cache: false,
+	        data: json, 
+        beforeSend : function (xhr){
+        	xhr.setRequestHeader('Authorization', sessionStorage.getItem("arpz"))
+        },
+	        success:function(response){	
+	        	 $('#msg').html(JSON.stringify(ret['retorno'].mensagem).replace(/"/g,""));		  		        	 
+	             $('#msg').css("color","blue");
+	        } ,
+	        error:	function(request, status, error) {	  
+		        	 $('#msg').html( "Erro *** " + JSON.stringify(request));  
+                 $('#msg').css("color","red");
+	    }	
+  		});	        
+	
+}

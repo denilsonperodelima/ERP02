@@ -26,6 +26,7 @@ import com.velocinotech.erp02.repositories.UsuarioPeriodoEventualRepository;
 import com.velocinotech.erp02.repositories.UsuarioPeriodoSuspensoRepository;
 import com.velocinotech.erp02.repositories.UsuarioPeriodoTrabalhoRepository;
 import com.velocinotech.erp02.repositories.UsuarioRepository;
+import com.velocinotech.erp02.resources.utils.EnviaEmail;
 import com.velocinotech.erp02.resources.utils.Micelaneas;
 import com.velocinotech.erp02.resources.utils.SenhaInicial;
 import com.velocinotech.erp02.services.exceptions.ObjectNotFoundException;
@@ -67,8 +68,11 @@ public class PessoaService {
 	@Autowired
 	private SenhaInicial senhainicial;
 	
+	//@Autowired
+	//private EmailService emailService;
+	
 	@Autowired
-	private EmailService emailService;
+	private EnviaEmail enviaemail;
 	
 	@Autowired
 	private BCryptPasswordEncoder pe;
@@ -141,11 +145,12 @@ public class PessoaService {
 
 			usuario.setPessoa(obj);	
 			
-			String novasenha = senhainicial.getSenhaInicial();
+			String novasenha = senhainicial.getSenhaInicialRandom();
 			
 			usuario.setSenha(pe.encode(novasenha));
 	        
-		    emailService.sendNewPasswordEmail(usuario, novasenha);
+		    //emailService.sendNewPasswordEmail(usuario, novasenha);
+	        enviaemail.enviarEmail(usuario.getEmail(), "Solicitação de nova senha", "Senha: " + novasenha);
 
 		}
 		usuarioRepository.save(obj.getUsuarios());      		

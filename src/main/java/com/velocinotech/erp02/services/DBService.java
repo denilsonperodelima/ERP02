@@ -126,9 +126,6 @@ public class DBService {
 		gerarProdutosEmpresa(empotavio, forana1, 10);
 		gerarProdutosEmpresa(empnilton, forana1, 10);
 		
-
-		
-		
 		Banco banco1 = new Banco(null,"237","ITAU","CONTA 01043", "OBS",forana1);
 		Banco banco2 = new Banco(null,"123","BRADESCO","CONTA XXXXXX", "OBS", forana1);
 		bancoRepository.save(Arrays.asList(banco1,banco2));
@@ -245,6 +242,7 @@ public class DBService {
 		//usu1.addPerfil(Perfil.ADMIN);
 		usu1.addPerfil(Perfil.USUARIOSIS);
 		//usu1.addPerfil(Perfil.PAGINACLIENTE);
+
 			
 		UsuarioPeriodoTrabalho trab1 = new UsuarioPeriodoTrabalho(null, 1, 0, 14, func1);
 		UsuarioPeriodoTrabalho trab2 = new UsuarioPeriodoTrabalho(null, 2, 8, 18, func1);
@@ -812,6 +810,7 @@ public class DBService {
 			produtoRepository.save(Arrays.asList(p1));	
 		}	
 	}
+
 	public String getProdutoNome() {
 		
 		String [] produtonome = { "Álcool etílico"

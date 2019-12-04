@@ -5,8 +5,8 @@ $(document).ready(function(){
 });
 
 
-$("#txtUsuario").val("mariza@gmail.com");
-$("#txtSenha").val("123");
+$("#txtUsuario").val("denilsonperodelima@gmail.com");
+$("#txtSenha").val("cachorroloko");
 
 $("#esquecisenha").css({marginLeft:'17%'});
     

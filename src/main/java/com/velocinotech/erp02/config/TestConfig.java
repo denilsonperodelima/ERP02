@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.velocinotech.erp02.services.DBService;
 import com.velocinotech.erp02.services.EmailService;
-import com.velocinotech.erp02.services.MockEmailService;
+import com.velocinotech.erp02.services.SmtpEmailService;
 
 @Configuration
 @Profile("test")
@@ -26,6 +26,7 @@ public class TestConfig {
 
 	@Bean
 	public EmailService emailService() {
-		return new MockEmailService();
+		//return new MockEmailService();
+		return new SmtpEmailService();
 	}
 }

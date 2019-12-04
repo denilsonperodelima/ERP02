@@ -89,7 +89,7 @@ public class UsuarioResource {
 		service.updatesenha(obj);
 		return ResponseEntity.noContent().build();	
 	}
-	@PreAuthorize("hasRole('USUARIOSIS') or hasRole('SUPER') or hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('USUARIOSIS') or hasRole('SUPER') or hasRole('ADMIN')")
 	@RequestMapping(value="/enviararpz/{email}",method=RequestMethod.POST)
 	public ResponseEntity<Void> enviaremail(@PathVariable String email) {		
 		service.enviaArpz(email);	

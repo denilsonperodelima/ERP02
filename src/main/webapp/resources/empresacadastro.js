@@ -108,6 +108,18 @@
 		   	esquecisenha("/auth/forgot", jsonemail, "")	
 		    	
   		});	
+ 
+   		$("#gerarprodutos").click( function (e) {
+   			e.preventDefault();	
+   			
+   		 
+  			if ($("#id").val() == "null") {
+  				alert("selecione a Empresa  !");
+  				return;
+  			}  
+   			gerarprodutos("/empresa/mokproduto/" + $("#id").val(), "", "")	
+		    	
+  		});	
    		
    		$(document).on("keyup", function(e) { 
    			if ( e.altKey && ( e.which == 78 ) ) { //ALT + N

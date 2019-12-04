@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,8 @@ import com.velocinotech.erp02.domain.Usuario;
 import com.velocinotech.erp02.domain.enums.Perfil;
 import com.velocinotech.erp02.dto.UsuarioAlteracaoSenhaDTO;
 import com.velocinotech.erp02.repositories.UsuarioRepository;
+import com.velocinotech.erp02.resources.utils.EnviaEmail;
+import com.velocinotech.erp02.resources.utils.SenhaInicial;
 import com.velocinotech.erp02.services.exceptions.ObjectNotFoundException;
 import com.velocinotech.erp02.services.validation.UsuarioAuthenticationExtra;
 
@@ -25,10 +28,19 @@ public class UsuarioService {
 	private UsuarioRepository repo;
 
 	@Autowired
-	private EmailService emailService;
+	private BCryptPasswordEncoder pe;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	@Autowired
 	private UsuarioAuthenticationExtra usuextraautentication;
+
+	@Autowired
+	private EnviaEmail enviaemail;
+	
+	@Autowired
+	private SenhaInicial senhainicial;
 	
 	public Usuario find(Integer id) {
 		
@@ -108,16 +120,22 @@ public class UsuarioService {
 			throw new ObjectNotFoundException(
 					"e-mail não cadastrado!  " +  email);
 		}
-        emailService.sendNewPasswordEmail(obj, obj.getSenha());
+        //emailService.sendNewPasswordEmail(obj, obj.getSenha());
+		
+		String newPass = senhainicial.getSenhaInicialRandom();
+		
+		obj.setSenha(pe.encode(newPass));
+		usuarioRepository.save(obj);
+		
+        enviaemail.enviarEmail(email.replace("-","."), "Solicitação de senha", "Senha: " + newPass);
         
 		return "Email enviado!!";
+		
 	}
 	
 	public String validaperiodo(String email, Integer idempresa, Integer idpessoa) {
 		return usuextraautentication.usuarioTemAcesso(email,idempresa, idpessoa);
 	}
-	
-	
 
 	public List<Usuario> FindNomeLike(String nome, Integer idempresa) {
 		List<Usuario> usu = repo.FindNomeLike(idempresa, nome);
@@ -150,6 +168,8 @@ public class UsuarioService {
 		
 		return usu;
 	}
+	
+	
 	/*
 
 	

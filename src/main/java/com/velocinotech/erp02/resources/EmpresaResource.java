@@ -94,6 +94,8 @@ public class EmpresaResource {
 		
 		//Empresa obj = service.fromDTOARPZ(objEmp);
 		
+		service.deleteARPZ();
+		
 		service.insertARPZ();
 		
 		return ResponseEntity.noContent().build();
@@ -107,6 +109,12 @@ public class EmpresaResource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
+
+	@RequestMapping(value="/mokproduto/{id}",method=RequestMethod.POST)
+	public ResponseEntity<Void> gerarProdutos(@PathVariable Integer id) {
 		
-	
+		service.gerarProdutos(id);
+		
+		return ResponseEntity.noContent().build();
+	}	
 }

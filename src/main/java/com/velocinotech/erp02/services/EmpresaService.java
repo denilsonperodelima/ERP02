@@ -1,5 +1,6 @@
 package com.velocinotech.erp02.services;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.velocinotech.erp02.domain.Empresa;
+import com.velocinotech.erp02.domain.Fornecedor;
 import com.velocinotech.erp02.domain.Funcionario;
 import com.velocinotech.erp02.domain.Pessoa;
 import com.velocinotech.erp02.domain.Usuario;
@@ -15,6 +17,7 @@ import com.velocinotech.erp02.domain.enums.Perfil;
 import com.velocinotech.erp02.domain.enums.TipoCliente;
 import com.velocinotech.erp02.dto.EmpresaDTO;
 import com.velocinotech.erp02.repositories.EmpresaRepository;
+import com.velocinotech.erp02.repositories.FornecedorRepository;
 import com.velocinotech.erp02.repositories.PessoaRepository;
 import com.velocinotech.erp02.repositories.UsuarioRepository;
 import com.velocinotech.erp02.services.exceptions.ObjectNotFoundException;
@@ -35,6 +38,13 @@ public class EmpresaService {
 	@Autowired
 	private UsuarioRepository usuariorepository;
 
+	@Autowired
+	private DBService dbservice;
+	
+	@Autowired
+	private FornecedorRepository fornecedorRepository;
+	
+	
 	public List<Empresa> findAll() {
 		List<Empresa> obj = repo.findAll();		
 		return obj;
@@ -97,7 +107,16 @@ public class EmpresaService {
 		usuariorepository.save(usu);
 
 	}	
-	@Transactional	
+	
+	public void deleteARPZ() {
+		
+		Usuario obj = usuariorepository.findByEmail("denilsonperodelima@gmail.com"); 
+		if (obj != null) {
+			usuariorepository.delete(obj.getId());
+		}	
+	    
+	}
+
 	public Empresa update(Empresa obj) {
 		
 		find(obj.getId());
@@ -149,6 +168,29 @@ public class EmpresaService {
 	       //emp.getPessoas().addAll(usu);
 		
 		return emp;
+	}
+
+	public void gerarProdutos(Integer id) {
+
+		Empresa empresa = repo.findOne(id);
+		if (empresa == null) {
+			throw new ObjectNotFoundException(
+					"Empresa não encontrado! Id: " + id + ", Tipo: " + Empresa.class.getName());
+		}
+		
+		Fornecedor fornec = fornecedorRepository.findOne(1);
+		if (fornec == null) {
+			throw new ObjectNotFoundException(
+					"Fonecedor não encontrado! Id: " + id + ", Tipo: " + Fornecedor.class.getName());
+		}
+		
+		try {
+			dbservice.gerarProdutosEmpresa(empresa, fornec, 5000);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/*

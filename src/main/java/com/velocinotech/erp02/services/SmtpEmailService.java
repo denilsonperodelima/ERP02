@@ -15,6 +15,10 @@ public class SmtpEmailService extends AbstractEmailService {
 	
 	@Override
 	public void sendEmail(SimpleMailMessage msg) {
+		
+		//System.out.println("mail sender " + mailSender.toString());
+	
+		
 		LOG.info("Enviando email...");
 		mailSender.send(msg);
 		LOG.info("Email enviado");

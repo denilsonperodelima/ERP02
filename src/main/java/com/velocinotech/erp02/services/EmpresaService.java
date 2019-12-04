@@ -185,7 +185,7 @@ public class EmpresaService {
 		}
 		
 		try {
-			dbservice.gerarProdutosEmpresa(empresa, fornec, 501);
+			dbservice.gerarProdutosEmpresa(empresa, fornec, 502);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
